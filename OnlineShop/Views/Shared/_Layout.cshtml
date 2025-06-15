@@ -60,7 +60,7 @@
                             </ul>
                         </div>
                         <div class="header_social d-flex">
-                            <span>Follow us</span>
+                            <span>Theo dõi chúng mình:</span>
                             <ul class="d-flex">
                                 <li><a href="@MySettings.Twitter"><i class="icon-social-twitter icons"></i></a></li>
                                 <li><a href="@MySettings.FaceBook"><i class="icon-social-facebook icons"></i></a></li>
@@ -213,14 +213,14 @@
                                         <ul class="dropdown_account_link">
                                             @if (User.Identity.IsAuthenticated)
                                             {
-                                                <li><a href="/User">My Account</a></li>
-                                                <li><a href="/User/Orders">Order List</a></li>
-                                                <li><a href="/account/logout">Logout</a></li>
+                                                <li><a href="/User">Tài khoản</a></li>
+                                                <li><a href="/User/Orders">Đơn hàng</a></li>
+                                                <li><a href="/account/logout">Đăng xuất</a></li>
                                             }
                                             else
                                             {
-                                                <li><a href="/account/login">Login</a></li>
-                                                <li><a href="/account/register">Register</a></li>
+                                                <li><a href="/account/login">Đăng nhập</a></li>
+                                                <li><a href="/account/register">Đăng ký</a></li>
                                             }
 
                                         </ul>
@@ -264,11 +264,11 @@
                         </div>
                         <div class="footer_contact">
                             <div class="footer_contact_list">
-                                <span>Our Location</span>
+                                <span>Địa chỉ của chúng tôi</span>
                                 <p>@MySettings.Address</p>
                             </div>
                             <div class="footer_contact_list">
-                                <span>24/7 hotline:</span>
+                                <span>Liên hệ:</span>
                                 <a href="tel:@MySettings.Phone">@MySettings.Phone</a>
                             </div>
                         </div>

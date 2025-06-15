@@ -10,7 +10,7 @@
                 <!--breadcrumbs area start-->
                 <div class="breadcrumb_content">
                     <ul>
-                        <li><a href="/">home</a></li>
+                        <li><a href="/">trang chủ</a></li>
                         <li>shop</li>
                     </ul>
                 </div>
@@ -20,7 +20,7 @@
                 <!--shop toolbar start-->
                 <div class="shop_toolbar_wrapper d-flex justify-content-between align-items-center">
                     <div class="page_amount">
-                        <p><span>@Model.Count</span> Products Found</p>
+                        <p>Tìm thấy <span>@Model.Count</span> sản phẩm </p>
                     </div>
  
                     <div class="toolbar_btn_wrapper d-flex align-items-center">
@@ -107,7 +107,7 @@
 
                                     </div>
                                     <div class="add_to_cart">
-                                        <a class="btn btn-primary" onclick="updateCart(@item.Id,1)" data-tippy="Add To Cart" data-tippy-inertia="true" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-placement="top">Add To Cart</a>
+                                        <a class="btn btn-primary" onclick="updateCart(@item.Id,1)" data-tippy="Thêm vào giỏ hàng" data-tippy-inertia="true" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-placement="top">Thêm vào giỏ hàng</a>
                                     </div>
                                 </div>
                                 <div class="product_list_content">
@@ -134,7 +134,7 @@
                                         <p>@item.Description</p>
                                     </div>
                                     <div class="add_to_cart">
-                                        <a class="btn btn-primary" onclick="updateCart(@item.Id,1)" data-tippy="Add To Cart" data-tippy-inertia="true" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-placement="top">Add To Cart</a>
+                                        <a class="btn btn-primary" onclick="updateCart(@item.Id,1)" data-tippy="Thêm vào giỏ hàng" data-tippy-inertia="true" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-placement="top">Thêm vào giỏ hàng</a>
 
                                     </div>
                                 </div>

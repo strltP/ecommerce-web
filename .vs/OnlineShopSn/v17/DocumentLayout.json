@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "D:\\OnlineShopSn\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CE30DEC3-210F-4FAE-AB85-7A72E8B9191F}|OnlineShop\\OnlineShop.csproj|d:\\onlineshopsn\\onlineshop\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CE30DEC3-210F-4FAE-AB85-7A72E8B9191F}|OnlineShop\\OnlineShop.csproj|solutionrelative:onlineshop\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE30DEC3-210F-4FAE-AB85-7A72E8B9191F}|OnlineShop\\OnlineShop.csproj|d:\\onlineshopsn\\onlineshop\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CE30DEC3-210F-4FAE-AB85-7A72E8B9191F}|OnlineShop\\OnlineShop.csproj|solutionrelative:onlineshop\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CE30DEC3-210F-4FAE-AB85-7A72E8B9191F}|OnlineShop\\OnlineShop.csproj|d:\\onlineshopsn\\onlineshop\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{CE30DEC3-210F-4FAE-AB85-7A72E8B9191F}|OnlineShop\\OnlineShop.csproj|solutionrelative:onlineshop\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE30DEC3-210F-4FAE-AB85-7A72E8B9191F}|OnlineShop\\OnlineShop.csproj|d:\\onlineshopsn\\onlineshop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CE30DEC3-210F-4FAE-AB85-7A72E8B9191F}|OnlineShop\\OnlineShop.csproj|solutionrelative:onlineshop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CE30DEC3-210F-4FAE-AB85-7A72E8B9191F}|OnlineShop\\OnlineShop.csproj|d:\\onlineshopsn\\onlineshop\\views\\account\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -17,18 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{CE30DEC3-210F-4FAE-AB85-7A72E8B9191F}|OnlineShop\\OnlineShop.csproj|d:\\onlineshopsn\\onlineshop\\views\\account\\recoverypassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{CE30DEC3-210F-4FAE-AB85-7A72E8B9191F}|OnlineShop\\OnlineShop.csproj|solutionrelative:onlineshop\\views\\account\\recoverypassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE30DEC3-210F-4FAE-AB85-7A72E8B9191F}|OnlineShop\\OnlineShop.csproj|d:\\onlineshopsn\\onlineshop\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CE30DEC3-210F-4FAE-AB85-7A72E8B9191F}|OnlineShop\\OnlineShop.csproj|solutionrelative:onlineshop\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE30DEC3-210F-4FAE-AB85-7A72E8B9191F}|OnlineShop\\OnlineShop.csproj|d:\\onlineshopsn\\onlineshop\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CE30DEC3-210F-4FAE-AB85-7A72E8B9191F}|OnlineShop\\OnlineShop.csproj|solutionrelative:onlineshop\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE30DEC3-210F-4FAE-AB85-7A72E8B9191F}|OnlineShop\\OnlineShop.csproj|d:\\onlineshopsn\\onlineshop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CE30DEC3-210F-4FAE-AB85-7A72E8B9191F}|OnlineShop\\OnlineShop.csproj|solutionrelative:onlineshop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CE30DEC3-210F-4FAE-AB85-7A72E8B9191F}|OnlineShop\\OnlineShop.csproj|d:\\onlineshopsn\\onlineshop\\areas\\admin\\controllers\\settingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -90,37 +90,24 @@
       "DocumentGroups": [
         {
           "DockedHeight": 1042,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\OnlineShopSn\\OnlineShop\\Views\\Products\\Index.cshtml",
               "RelativeDocumentMoniker": "OnlineShop\\Views\\Products\\Index.cshtml",
               "ToolTip": "D:\\OnlineShopSn\\OnlineShop\\Views\\Products\\Index.cshtml",
               "RelativeToolTip": "OnlineShop\\Views\\Products\\Index.cshtml",
-              "ViewState": "AQIAAHcAAAAAAAAAAAAAAIgAAABjAAAA",
+              "ViewState": "AQIAAI0AAAAAAAAAAAAAAIgAAAD3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-15T17:27:40.008Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ResetPassword.cshtml",
-              "DocumentMoniker": "D:\\OnlineShopSn\\OnlineShop\\Views\\Account\\ResetPassword.cshtml",
-              "RelativeDocumentMoniker": "OnlineShop\\Views\\Account\\ResetPassword.cshtml",
-              "ToolTip": "D:\\OnlineShopSn\\OnlineShop\\Views\\Account\\ResetPassword.cshtml",
-              "RelativeToolTip": "OnlineShop\\Views\\Account\\ResetPassword.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-15T17:26:25.459Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Register.cshtml",
               "DocumentMoniker": "D:\\OnlineShopSn\\OnlineShop\\Views\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "OnlineShop\\Views\\Account\\Register.cshtml",
@@ -128,12 +115,11 @@
               "RelativeToolTip": "OnlineShop\\Views\\Account\\Register.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-15T17:26:22.398Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T17:26:22.398Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "RecoveryPassword.cshtml",
               "DocumentMoniker": "D:\\OnlineShopSn\\OnlineShop\\Views\\Account\\RecoveryPassword.cshtml",
               "RelativeDocumentMoniker": "OnlineShop\\Views\\Account\\RecoveryPassword.cshtml",
@@ -141,31 +127,30 @@
               "RelativeToolTip": "OnlineShop\\Views\\Account\\RecoveryPassword.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-15T17:25:58.452Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T17:25:58.452Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Login.cshtml",
               "DocumentMoniker": "D:\\OnlineShopSn\\OnlineShop\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "OnlineShop\\Views\\Account\\Login.cshtml",
               "ToolTip": "D:\\OnlineShopSn\\OnlineShop\\Views\\Account\\Login.cshtml",
               "RelativeToolTip": "OnlineShop\\Views\\Account\\Login.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-15T17:23:48.692Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\OnlineShopSn\\OnlineShop\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "OnlineShop\\Views\\Home\\Index.cshtml",
               "ToolTip": "D:\\OnlineShopSn\\OnlineShop\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "OnlineShop\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFoAAAAVAAAA",
+              "ViewState": "AQIAAHcBAAAAAAAAAAAAAIABAAAEAQAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-15T17:18:08.752Z",
               "EditorCaption": ""
@@ -180,8 +165,32 @@
               "RelativeToolTip": "OnlineShop\\Areas\\Admin\\Controllers\\UsersController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T17:13:11.778Z",
+              "WhenOpened": "2025-06-15T17:13:11.778Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\OnlineShopSn\\OnlineShop\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "OnlineShop\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\OnlineShopSn\\OnlineShop\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "OnlineShop\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAIIBAAAAAAAAAAAAAA4BAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-15T16:49:37.557Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ResetPassword.cshtml",
+              "DocumentMoniker": "D:\\OnlineShopSn\\OnlineShop\\Views\\Account\\ResetPassword.cshtml",
+              "RelativeDocumentMoniker": "OnlineShop\\Views\\Account\\ResetPassword.cshtml",
+              "ToolTip": "D:\\OnlineShopSn\\OnlineShop\\Views\\Account\\ResetPassword.cshtml",
+              "RelativeToolTip": "OnlineShop\\Views\\Account\\ResetPassword.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-15T17:26:25.459Z"
             },
             {
               "$type": "Document",
@@ -193,8 +202,7 @@
               "RelativeToolTip": "OnlineShop\\Areas\\Admin\\Controllers\\ProductsController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T17:13:03.81Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T17:13:03.81Z"
             },
             {
               "$type": "Document",
@@ -206,8 +214,7 @@
               "RelativeToolTip": "OnlineShop\\Areas\\Admin\\Controllers\\OrdersController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T17:13:00.503Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T17:13:00.503Z"
             },
             {
               "$type": "Document",
@@ -219,8 +226,7 @@
               "RelativeToolTip": "OnlineShop\\Areas\\Admin\\Controllers\\MenusController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T17:12:57.169Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T17:12:57.169Z"
             },
             {
               "$type": "Document",
@@ -232,21 +238,7 @@
               "RelativeToolTip": "OnlineShop\\Areas\\Admin\\Controllers\\SettingsController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T16:26:40.645Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\OnlineShopSn\\OnlineShop\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "OnlineShop\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\OnlineShopSn\\OnlineShop\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "OnlineShop\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAHYBAAAAAAAAAAAAAIwBAAAPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-15T16:49:37.557Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T16:26:40.645Z"
             },
             {
               "$type": "Document",
@@ -258,8 +250,7 @@
               "RelativeToolTip": "OnlineShop\\Areas\\Admin\\Controllers\\HomeController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T17:12:53.118Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T17:12:53.118Z"
             },
             {
               "$type": "Document",
@@ -271,8 +262,7 @@
               "RelativeToolTip": "OnlineShop\\Areas\\Admin\\Controllers\\CouponsController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T17:12:48.496Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T17:12:48.496Z"
             },
             {
               "$type": "Document",
@@ -284,8 +274,7 @@
               "RelativeToolTip": "OnlineShop\\Areas\\Admin\\Controllers\\CommentsController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T17:11:22.278Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T17:11:22.278Z"
             },
             {
               "$type": "Document",
@@ -297,8 +286,7 @@
               "RelativeToolTip": "OnlineShop\\Areas\\Admin\\Controllers\\BannersController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T17:10:57.427Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T17:10:57.427Z"
             },
             {
               "$type": "Document",
@@ -310,8 +298,7 @@
               "RelativeToolTip": "OnlineShop\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-15T17:06:59.415Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T17:06:59.415Z"
             },
             {
               "$type": "Document",
@@ -323,8 +310,7 @@
               "RelativeToolTip": "OnlineShop\\Areas\\Admin\\Views\\Home\\Index.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAFsAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-15T17:04:01.694Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T17:04:01.694Z"
             },
             {
               "$type": "Document",
@@ -336,8 +322,7 @@
               "RelativeToolTip": "OnlineShop\\Areas\\Admin\\Views\\Settings\\Edit.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-15T16:32:36.299Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T16:32:36.299Z"
             },
             {
               "$type": "Document",
@@ -349,8 +334,7 @@
               "RelativeToolTip": "OnlineShop\\Controllers\\CartController.cs",
               "ViewState": "AQIAAJMAAAAAAAAAAAAqwKMAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T16:15:42.591Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T16:15:42.591Z"
             }
           ]
         }
