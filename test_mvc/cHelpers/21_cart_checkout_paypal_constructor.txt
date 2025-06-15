@@ -1,9 +1,0 @@
-        private OnlineShopContext _context;
-        private IHttpContextAccessor _httpContextAccessor;
-        IConfiguration _configuration;
-        public CartController(OnlineShopContext context, IHttpContextAccessor httpContextAccessor, IConfiguration iconfiguration)
-        {
-            _httpContextAccessor = httpContextAccessor;
-            _configuration = iconfiguration;
-            _context = context;
-        }
