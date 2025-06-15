@@ -41,13 +41,13 @@ public partial class OnlineShopContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=LAPTOP-JOI1OHSE\\SQLEXPRESS;Database=OnlineShopTEST;Trusted_Connection=True;TrustServerCertificate=true");
+        => optionsBuilder.UseSqlServer("Server=LAPTOP-JOI1OHSE\\SQLEXPRESS01;Database=OnlineShop;Trusted_Connection=True;TrustServerCertificate=true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Banner>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Banner__3214EC273F20E288");
+            entity.HasKey(e => e.Id).HasName("PK__Banner__3214EC273FE93CA7");
 
             entity.ToTable("Banner");
 
@@ -87,7 +87,7 @@ public partial class OnlineShopContext : DbContext
 
         modelBuilder.Entity<Comment>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Comment__3214EC075A8EFAF7");
+            entity.HasKey(e => e.Id).HasName("PK__Comment__3214EC077E6E5D7B");
 
             entity.ToTable("Comment");
 
@@ -98,12 +98,13 @@ public partial class OnlineShopContext : DbContext
 
             entity.HasOne(d => d.Product).WithMany(p => p.Comments)
                 .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__Comment__Product__5165187F");
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Comment__Product__3B75D760");
         });
 
         modelBuilder.Entity<Coupon>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Coupon__3214EC073E893DE8");
+            entity.HasKey(e => e.Id).HasName("PK__Coupon__3214EC07435C317D");
 
             entity.ToTable("Coupon");
 
@@ -113,7 +114,7 @@ public partial class OnlineShopContext : DbContext
 
         modelBuilder.Entity<Menu>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Menus__3214EC2772E28D13");
+            entity.HasKey(e => e.Id).HasName("PK__Menus__3214EC276E816C31");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.Link).HasMaxLength(300);
@@ -123,7 +124,7 @@ public partial class OnlineShopContext : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Order__3214EC07FA7C73DD");
+            entity.HasKey(e => e.Id).HasName("PK__Order__3214EC07882D5BCC");
 
             entity.ToTable("Order");
 
@@ -147,28 +148,31 @@ public partial class OnlineShopContext : DbContext
 
             entity.HasOne(d => d.User).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__Order__UserId__59FA5E80");
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Order__UserId__440B1D61");
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__OrderDet__3214EC07F416EF8C");
+            entity.HasKey(e => e.Id).HasName("PK__OrderDet__3214EC077CB0DC50");
 
             entity.Property(e => e.ProductPrice).HasColumnType("money");
             entity.Property(e => e.ProductTitle).HasMaxLength(200);
 
             entity.HasOne(d => d.Order).WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.OrderId)
-                .HasConstraintName("FK__OrderDeta__Order__5CD6CB2B");
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__OrderDeta__Order__46E78A0C");
 
             entity.HasOne(d => d.Product).WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__OrderDeta__Produ__5DCAEF64");
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__OrderDeta__Produ__47DBAE45");
         });
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Products__3214EC075EC5600F");
+            entity.HasKey(e => e.Id).HasName("PK__Products__3214EC073FF53A7D");
 
             entity.Property(e => e.Description).HasMaxLength(500);
             entity.Property(e => e.Discount).HasColumnType("money");
@@ -182,7 +186,7 @@ public partial class OnlineShopContext : DbContext
 
         modelBuilder.Entity<ProductGallery>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__ProductG__3214EC070C0937B7");
+            entity.HasKey(e => e.Id).HasName("PK__ProductG__3214EC07E6E3C4B6");
 
             entity.ToTable("ProductGallery");
 
@@ -190,12 +194,13 @@ public partial class OnlineShopContext : DbContext
 
             entity.HasOne(d => d.Product).WithMany(p => p.ProductGalleries)
                 .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__ProductGa__Produ__60A75C0F");
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__ProductGa__Produ__4AB81AF0");
         });
 
         modelBuilder.Entity<Setting>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Settings__3214EC07F802996A");
+            entity.HasKey(e => e.Id).HasName("PK__Settings__3214EC07C99A9EA7");
 
             entity.Property(e => e.Address).HasMaxLength(500);
             entity.Property(e => e.CopyRight).HasMaxLength(100);
@@ -213,7 +218,7 @@ public partial class OnlineShopContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__User__3214EC07E008204B");
+            entity.HasKey(e => e.Id).HasName("PK__User__3214EC07EB2AD328");
 
             entity.ToTable("User");
 

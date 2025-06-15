@@ -5,9 +5,9 @@ namespace OnlineShop.Models.Db;
 
 public partial class BestSellingTemp
 {
-    public int? ProductId { get; set; }
+    public int ProductId { get; set; }
 
-    public int? Count { get; set; }
+    public int Count { get; set; }
 
     public string? Title { get; set; }
 
@@ -19,7 +19,7 @@ public partial class BestSellingTemp
 
     public int? Qty { get; set; }
 
-    public int? OrderId { get; set; }
+    public int OrderId { get; set; }
 
     public string? Status { get; set; }
 }

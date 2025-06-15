@@ -28,3 +28,4 @@ D:\OnlineShopSn\test_mvc\obj\Debug\net8.0\refint\test_mvc.dll
 D:\OnlineShopSn\test_mvc\obj\Debug\net8.0\test_mvc.pdb
 D:\OnlineShopSn\test_mvc\obj\Debug\net8.0\test_mvc.genruntimeconfig.cache
 D:\OnlineShopSn\test_mvc\obj\Debug\net8.0\ref\test_mvc.dll
+D:\OnlineShopSn\test_mvc\obj\Debug\net8.0\test_mvc.sourcelink.json

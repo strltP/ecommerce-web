@@ -197,6 +197,9 @@ namespace OnlineShop.Controllers
         [HttpPost]
         public IActionResult Checkout(Models.Db.Order order)
         {
+            order.UserId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            ModelState.Remove("User"); // bỏ qua validate cho navigation
+
             if (!ModelState.IsValid)
             {
 
@@ -232,7 +235,7 @@ namespace OnlineShop.Controllers
             order.CreateDate = DateTime.Now;
             order.SubTotal = products.Sum(x => x.RowSumPrice);
             order.Total = (order.SubTotal + order.Shipping ?? 0);
-            order.UserId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            //order.UserId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             if (order.CouponDiscount != null)
             {
