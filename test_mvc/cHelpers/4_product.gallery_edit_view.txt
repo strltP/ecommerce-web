@@ -1,0 +1,17 @@
+@{
+    var galleries = ViewData["gallery"] as List<OnlineShop.Models.Db.ProductGalery>;
+    <div class="row">
+        @if (galleries != null)
+        {
+            foreach (var item in galleries)
+            {
+                <div class="col-md-3 col-12" id="@item.Id">
+                    <img src="/images/banners/@item.ImageName" class="img-thumbnail" />
+                    <a class="btn btn-danger w-100" href="/admin/products/DeleteGallery?id=@item.Id">
+                        delete
+                    </a>
+                </div>
+            }
+        }
+    </div>
+}

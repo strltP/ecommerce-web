@@ -1,0 +1,12 @@
+Scaffold-Dbcontext  "Data Source=MY-PC\SQL_EX_2019;Initial Catalog=School;Persist Security Info=True;User ID=sa;Password=123" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables Students -Force -DataAnnotations -UseDatabaseNames
+
+
+ 
+
+Scaffold-DbContext “Server=MY-PC\SQLEXPRESS;Database=OnlineShop;Trusted_Connection=True;TrustServerCertificate=true” Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models/Db -force
+
+LAPTOP-JOI1OHSE\SQLEXPRESS01
+
+Scaffold-DbContext “Server=LAPTOP-JOI1OHSE\SQLEXPRESS01;Database=OnlineShop;Trusted_Connection=True;TrustServerCertificate=true” Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models/Db -force
+
+Scaffold-DbContext “Server=LAPTOP-JOI1OHSE\SQLEXPRESS;Database=OnlineShopTEST;Trusted_Connection=True;TrustServerCertificate=true” Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models/Db -Context OnlineShopContext -force

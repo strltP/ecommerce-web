@@ -1,0 +1,63 @@
+   [HttpPost]
+   [ValidateAntiForgeryToken]
+   public async Task<IActionResult> Edit(int id,
+       [Bind("Id,Shipping,Title,Address,Phone,CopyRight,Instagram,FaceBook,GooglePlus,Youtube,Twitter,Logo")]
+       Setting setting, IFormFile? newLogo)
+   {
+       if (id != setting.Id)
+       {
+           return NotFound();
+       }
+
+       if (ModelState.IsValid)
+       {
+           try
+           {
+               if (newLogo != null)
+               {
+                  
+                   string d = Directory.GetCurrentDirectory();
+                   string path = d + "\\wwwroot\\images\\" + setting.Logo;
+                   //------------------------------------------------
+                   if (System.IO.File.Exists(path))
+                   {
+                       System.IO.File.Delete(path);
+                   }
+
+                   //------------------------------------------------
+                   setting.Logo = Guid.NewGuid() + Path.GetExtension(newLogo.FileName);
+                   path = d + "\\wwwroot\\images\\" + setting.Logo;
+                   //------------------------------------------------
+
+                   using (var stream = new FileStream(path, FileMode.Create))
+                   {
+                       newLogo.CopyTo(stream);
+                   }
+               }
+
+               _context.Update(setting);
+               await _context.SaveChangesAsync();
+
+               TempData["message"] = "Setting saved";
+           }
+           catch (DbUpdateConcurrencyException)
+           {
+               if (!SettingExists(setting.Id))
+               {
+                   return NotFound();
+               }
+               else
+               {
+                   throw;
+               }
+           }
+       }
+
+       return Redirect($"/admin/Settings/Edit");
+   }
+
+
+   private bool SettingExists(int id)
+   {
+       return _context.Settings.Any(e => e.Id == id);
+   }

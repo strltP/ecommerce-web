@@ -1,0 +1,27 @@
+string d = Directory.GetCurrentDirectory();
+string fn = d + "\\wwwroot\\images\\products\\";
+//----------
+string mainImagePath = fn + product.ImageName;
+//--------------------------
+if (System.IO.File.Exists(mainImagePath))
+{
+    System.IO.File.Delete(mainImagePath);
+}
+//--------------------------
+var galleries = _context.ProductGaleries.Where(x => x.ProductId == id).ToList();
+if (galleries != null)
+{
+    //--------------------------
+    foreach (var item in galleries)
+    {
+        string galleryImagePath = fn + item.ImageName;
+        //--------------------------
+        if (System.IO.File.Exists(galleryImagePath))
+        {
+            System.IO.File.Delete(galleryImagePath);
+        }
+        //--------------------------
+    }
+    //--------------------------
+    _context.ProductGaleries.RemoveRange(galleries);
+}

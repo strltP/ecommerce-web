@@ -1,0 +1,14 @@
+        [Authorize]
+        public IActionResult Checkout()
+        {
+            var order = new Models.db.Order();
+
+            var shipping = _context.Settings.First().Shipping;
+            if (shipping != null)
+            {
+                order.Shipping = shipping;
+            }
+
+            ViewData["Products"] = GetProductsinCart();
+            return View(order);
+        }

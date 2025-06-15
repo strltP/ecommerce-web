@@ -1,0 +1,3 @@
+ $(".slick-slide").click(function () {
+     $(".slick-track").css("transform", "");
+ });

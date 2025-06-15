@@ -1,0 +1,54 @@
+﻿@model IEnumerable<OnlineShop.Models.Db.Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Product List</h2>
+        <a asp-action="Create" class="btn btn-primary">Create New</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Title)</th>
+                    <th>@Html.DisplayNameFor(model => model.Description)</th>
+                    <th>@Html.DisplayNameFor(model => model.FullDesc)</th>
+                    <th>@Html.DisplayNameFor(model => model.Price)</th>
+                    <th>@Html.DisplayNameFor(model => model.Discount)</th>
+                    <th>@Html.DisplayNameFor(model => model.ImageName)</th>
+                    <th>@Html.DisplayNameFor(model => model.Qty)</th>
+                    <th>@Html.DisplayNameFor(model => model.Tags)</th>
+                    <th>@Html.DisplayNameFor(model => model.VideoUrl)</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                        <td>@Html.DisplayFor(modelItem => item.FullDesc)</td>
+                        <td>$@Html.DisplayFor(modelItem => item.Price)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Discount)%</td>
+                        <td>
+                            <img src="/images/banners/@item.ImageName" class="img-thumbnail" style="max-width:100px;" />
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.Qty)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Tags)</td>
+                        <td><a href="@item.VideoUrl" target="_blank">Video</a></td>
+                        <td class="text-center">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning me-1">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info me-1">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
