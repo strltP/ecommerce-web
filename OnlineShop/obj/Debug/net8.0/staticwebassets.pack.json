@@ -509,6 +509,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\OnlineShopSn\\OnlineShop\\wwwroot\\images\\8e64e10d-a9d6-48eb-a82d-c18b59d4269b.png",
+      "PackagePath": "staticwebassets\\images\\8e64e10d-a9d6-48eb-a82d-c18b59d4269b.png"
+    },
+    {
       "Id": "D:\\OnlineShopSn\\OnlineShop\\wwwroot\\images\\banners\\01748aa0-15bb-4f8d-b55f-3434979e57c6.jpg",
       "PackagePath": "staticwebassets\\images\\banners\\01748aa0-15bb-4f8d-b55f-3434979e57c6.jpg"
     },
@@ -603,6 +607,10 @@
     {
       "Id": "D:\\OnlineShopSn\\OnlineShop\\wwwroot\\images\\banners\\67df7b8b-6241-4432-9ecf-98af1a4f6751.jpg",
       "PackagePath": "staticwebassets\\images\\banners\\67df7b8b-6241-4432-9ecf-98af1a4f6751.jpg"
+    },
+    {
+      "Id": "D:\\OnlineShopSn\\OnlineShop\\wwwroot\\images\\banners\\7279e1ab-bbe7-4e34-9e78-6b583317ebd2.png",
+      "PackagePath": "staticwebassets\\images\\banners\\7279e1ab-bbe7-4e34-9e78-6b583317ebd2.png"
     },
     {
       "Id": "D:\\OnlineShopSn\\OnlineShop\\wwwroot\\images\\banners\\7b22b6c3-640c-4d23-aee2-a2dbe272ba83.png",

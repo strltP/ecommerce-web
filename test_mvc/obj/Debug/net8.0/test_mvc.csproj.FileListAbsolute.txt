@@ -13,6 +13,7 @@ D:\OnlineShopSn\test_mvc\obj\Debug\net8.0\test_mvc.csproj.CoreCompileInputs.cach
 D:\OnlineShopSn\test_mvc\obj\Debug\net8.0\test_mvc.MvcApplicationPartsAssemblyInfo.cache
 D:\OnlineShopSn\test_mvc\obj\Debug\net8.0\test_mvc.RazorAssemblyInfo.cache
 D:\OnlineShopSn\test_mvc\obj\Debug\net8.0\test_mvc.RazorAssemblyInfo.cs
+D:\OnlineShopSn\test_mvc\obj\Debug\net8.0\test_mvc.sourcelink.json
 D:\OnlineShopSn\test_mvc\obj\Debug\net8.0\staticwebassets.build.json
 D:\OnlineShopSn\test_mvc\obj\Debug\net8.0\staticwebassets.development.json
 D:\OnlineShopSn\test_mvc\obj\Debug\net8.0\staticwebassets\msbuild.test_mvc.Microsoft.AspNetCore.StaticWebAssets.props
@@ -28,4 +29,3 @@ D:\OnlineShopSn\test_mvc\obj\Debug\net8.0\refint\test_mvc.dll
 D:\OnlineShopSn\test_mvc\obj\Debug\net8.0\test_mvc.pdb
 D:\OnlineShopSn\test_mvc\obj\Debug\net8.0\test_mvc.genruntimeconfig.cache
 D:\OnlineShopSn\test_mvc\obj\Debug\net8.0\ref\test_mvc.dll
-D:\OnlineShopSn\test_mvc\obj\Debug\net8.0\test_mvc.sourcelink.json

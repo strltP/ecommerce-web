@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using OnlineShop.Models.Db;
 namespace OnlineShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "admin")]
     public class OrdersController : Controller
     {
         private readonly OnlineShopContext _context;
@@ -22,8 +24,9 @@ namespace OnlineShop.Areas.Admin.Controllers
         // GET: Admin/Orders
         public async Task<IActionResult> Index()
         {
-            var onlineShopContext = _context.Orders.Include(o => o.User);
-            return View(await onlineShopContext.ToListAsync());
+            //var onlineShopContext = _context.Orders.Include(o => o.User);
+            //return View(await onlineShopContext.ToListAsync());
+            return View(await _context.Orders.OrderByDescending(o => o.Id).ToListAsync());
         }
 
         // GET: Admin/Orders/Details/5
@@ -83,6 +86,10 @@ namespace OnlineShop.Areas.Admin.Controllers
                 return NotFound();
             }
             ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", order.UserId);
+            ViewData["OrderDetails"] = _context.OrderDetails
+                .Where(od => od.OrderId == id)
+           
+                .ToList();
             return View(order);
         }
 
@@ -93,6 +100,10 @@ namespace OnlineShop.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,UserId,FirstName,LastName,CompanyName,Country,Address,City,Email,Phone,Comment,CouponCode,CouponDiscount,Shipping,SubTotal,Total,CreateDate,TransId,Status")] Order order)
         {
+            ViewData["OrderDetails"] = _context.OrderDetails
+              .Where(od => od.OrderId == id)
+
+              .ToList();
             if (id != order.Id)
             {
                 return NotFound();
@@ -151,6 +162,14 @@ namespace OnlineShop.Areas.Admin.Controllers
             {
                 _context.Orders.Remove(order);
             }
+            //------delete order details-----------
+            var orderDetails = _context.OrderDetails
+              .Where(od => od.OrderId == id)
+
+              .ToList();
+
+            _context.OrderDetails.RemoveRange(orderDetails);
+            //-------------------------------------------
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

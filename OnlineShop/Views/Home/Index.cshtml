@@ -28,8 +28,9 @@
                             <div class="col-lg-6 col-md-7">
                                 <div class="slider_text">
                                     <span>Lookbook</span>
-                                    <h1>@item.Title</h1>
-                                    <p>@item.SubTitle</p>
+                                    <h1>
+                                        @Html.Raw(item.Title.Replace("\n","<br/>")) </h1>
+                                        <p> @Html.Raw(item.SubTitle.Replace("\n", "<br/>"))</p>
                                     <a class="btn btn-primary" href="@item.Link">Explore Now</a>
                                 </div>
                             </div>
@@ -48,7 +49,7 @@
 <section class="shipping_section mb-102">
     <div class="container">
         <div class="row">
-            <div class="col-12">
+           @*  <div class="col-12">
                 <div class="shipping_inner d-flex justify-content-between">
                     <div class="single_shipping d-flex align-items-center">
                         <div class="shipping_icon">
@@ -87,7 +88,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> *@
         </div>
     </div>
 </section>
@@ -109,8 +110,8 @@
                     <figure class="single_banner position-relative mr-30">
                         <img src="/images/banners/@item.ImageName" alt="">
                         <figcaption class="banner_text position-absolute">
-                            <h3>@item.Title</h3>
-                            <p>@item.SubTitle</p>
+                            <h3>@Html.Raw(item.Title.Replace("\n", "<br/>"))</h3>
+                            <p>@Html.Raw(item.SubTitle.Replace("\n", "<br/>"))</p>
                             @if (!string.IsNullOrEmpty(item.Link))
                             {
                                 <a class="btn btn-primary" href="@item.Link">Shop Now</a>
@@ -230,7 +231,7 @@
 
                                         </div>
                                         <div class="add_to_cart">
-                                            <a class="btn btn-primary" onclick="updateCart(@item.ProductId,1)" href="#" data-tippy="Add To Cart" data-tippy-inertia="true" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-placement="top">Add To Cart</a>
+                                            <a class="btn btn-primary" onclick="updateCart(@item.ProductId,1)" data-tippy="Add To Cart" data-tippy-inertia="true" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-placement="top">Add To Cart</a>
                                         </div>
                                     </div>
                              
@@ -262,8 +263,8 @@
                         <figure class="single_banner position-relative">
                             <img src="/images/banners/@item.ImageName" alt="">
                             <div class="banner_text position-absolute">
-                                <h3>@item.Title</h3>
-                                <p>@item.SubTitle</p>
+                                <h3>@Html.Raw(item.Title.Replace("\n", "<br/>"))</h3>
+                                <p>@Html.Raw(item.SubTitle.Replace("\n", "<br/>"))</p>
                                 @if (!string.IsNullOrEmpty(item.Link))
                                 {
                                     <a class="btn btn-primary" href="@item.Link">Shop Now</a>

@@ -188,10 +188,14 @@
 
                                 @if (Model.Qty>0)
                                 {
-                                    <div class="pro-qty border">
+                                   @*  <div class="pro-qty border">
                                         <input min="1" max="100" type="text" value="1">
-                                    </div>
-                                    <button class="button btn btn-primary" type="submit"><i class="ion-android-add"></i> Add To Cart</button>
+                                    </div> *@
+                                    <a class="button btn btn-primary" onclick="updateCart(@Model.Id,1)">
+                                        <i class="ion-android-add">
+
+                                        </i> Add To Cart
+                                    </a>
                                 }
 
                               
@@ -528,7 +532,7 @@
                                             }
                                         </div>
                                         <div class="add_to_cart">
-                                            <a class="btn btn-primary" href="#" data-tippy="Add To Cart" data-tippy-inertia="true" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-placement="top">Add To Cart</a>
+                                            <a class="btn btn-primary" onclick="updateCart(@item.Id,1)" data-tippy="Add To Cart" data-tippy-inertia="true" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-placement="top">Add To Cart</a>
                                         </div>
                                     </figcaption>
                                 </figure>

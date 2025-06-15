@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Edit";
+    List<OnlineShop.Models.Db.OrderDetail> orderDetails = ViewData["OrderDetails"] as List<OnlineShop.Models.Db.OrderDetail>;
 }
 
 <h1>Edit</h1>
@@ -108,9 +109,48 @@
             </div>
         </form>
     </div>
-</div>
+
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Count
+                </th>
+                <th>
+                    Total
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in orderDetails)
+            {
+                <tr>
+                    <td>
+                        @item.ProductTitle
+                    </td>
+                    <td>
+                        @item.ProductPrice
+                    </td>
+                    <td>
+                        @item.Count
+                    </td>
+                    <td>
+                        @(item.Count * item.ProductPrice)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+</div> 
 

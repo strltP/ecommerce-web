@@ -72,6 +72,7 @@ D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\NuGet.Packaging.dll
 D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\NuGet.ProjectModel.dll
 D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\NuGet.Protocol.dll
 D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\NuGet.Versioning.dll
+D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\PayPal.dll
 D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\System.ClientModel.dll
 D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\System.CodeDom.dll
 D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\System.Composition.AttributedModel.dll
@@ -81,6 +82,7 @@ D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\System.Composition.Runtime.dll
 D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\System.Composition.TypedParts.dll
 D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
 D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
 D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\System.Formats.Asn1.dll
 D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\System.IO.Pipelines.dll
@@ -248,6 +250,8 @@ D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Da
 D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.Messages.dll
+D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
 D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 D:\OnlineShopSn\OnlineShop\obj\Debug\net8.0\OnlineShop.csproj.AssemblyReference.cache
@@ -258,6 +262,7 @@ D:\OnlineShopSn\OnlineShop\obj\Debug\net8.0\OnlineShop.csproj.CoreCompileInputs.
 D:\OnlineShopSn\OnlineShop\obj\Debug\net8.0\OnlineShop.MvcApplicationPartsAssemblyInfo.cache
 D:\OnlineShopSn\OnlineShop\obj\Debug\net8.0\OnlineShop.RazorAssemblyInfo.cache
 D:\OnlineShopSn\OnlineShop\obj\Debug\net8.0\OnlineShop.RazorAssemblyInfo.cs
+D:\OnlineShopSn\OnlineShop\obj\Debug\net8.0\OnlineShop.sourcelink.json
 D:\OnlineShopSn\OnlineShop\obj\Debug\net8.0\staticwebassets.build.json
 D:\OnlineShopSn\OnlineShop\obj\Debug\net8.0\staticwebassets.development.json
 D:\OnlineShopSn\OnlineShop\obj\Debug\net8.0\staticwebassets\msbuild.OnlineShop.Microsoft.AspNetCore.StaticWebAssets.props
@@ -275,8 +280,3 @@ D:\OnlineShopSn\OnlineShop\obj\Debug\net8.0\refint\OnlineShop.dll
 D:\OnlineShopSn\OnlineShop\obj\Debug\net8.0\OnlineShop.pdb
 D:\OnlineShopSn\OnlineShop\obj\Debug\net8.0\OnlineShop.genruntimeconfig.cache
 D:\OnlineShopSn\OnlineShop\obj\Debug\net8.0\ref\OnlineShop.dll
-D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\PayPal.dll
-D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
-D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.Messages.dll
-D:\OnlineShopSn\OnlineShop\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
-D:\OnlineShopSn\OnlineShop\obj\Debug\net8.0\OnlineShop.sourcelink.json

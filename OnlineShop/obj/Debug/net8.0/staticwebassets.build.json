@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hjQiuMu3G/YSxPkY7V1KYKYOa8Qju96TvC3lEvKGi1U=",
+  "Hash": "yeEHf+rUap+iAiFwQCAAW7SQzcxXIDLAv/Ss+bhRLRU=",
   "Source": "OnlineShop",
   "BasePath": "_content/OnlineShop",
   "Mode": "Default",
@@ -2449,6 +2449,25 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "D:\\OnlineShopSn\\OnlineShop\\wwwroot\\images\\8e64e10d-a9d6-48eb-a82d-c18b59d4269b.png",
+      "SourceId": "OnlineShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\OnlineShopSn\\OnlineShop\\wwwroot\\",
+      "BasePath": "_content/OnlineShop",
+      "RelativePath": "images/8e64e10d-a9d6-48eb-a82d-c18b59d4269b.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\8e64e10d-a9d6-48eb-a82d-c18b59d4269b.png"
+    },
+    {
       "Identity": "D:\\OnlineShopSn\\OnlineShop\\wwwroot\\images\\banners\\01748aa0-15bb-4f8d-b55f-3434979e57c6.jpg",
       "SourceId": "OnlineShop",
       "SourceType": "Discovered",
@@ -2903,6 +2922,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\banners\\67df7b8b-6241-4432-9ecf-98af1a4f6751.jpg"
+    },
+    {
+      "Identity": "D:\\OnlineShopSn\\OnlineShop\\wwwroot\\images\\banners\\7279e1ab-bbe7-4e34-9e78-6b583317ebd2.png",
+      "SourceId": "OnlineShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\OnlineShopSn\\OnlineShop\\wwwroot\\",
+      "BasePath": "_content/OnlineShop",
+      "RelativePath": "images/banners/7279e1ab-bbe7-4e34-9e78-6b583317ebd2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\banners\\7279e1ab-bbe7-4e34-9e78-6b583317ebd2.png"
     },
     {
       "Identity": "D:\\OnlineShopSn\\OnlineShop\\wwwroot\\images\\banners\\7b22b6c3-640c-4d23-aee2-a2dbe272ba83.png",
