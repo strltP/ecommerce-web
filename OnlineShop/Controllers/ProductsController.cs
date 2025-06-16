@@ -13,9 +13,37 @@ namespace OnlineShop.Controllers
         }
         public IActionResult Index()
         {
+            //Lấy tất cả danh mục để hiển thị trong View
+            ViewData["Categories"] = _context.Categories.OrderBy(c => c.Id).ToList();
             List<Product> products = _context.Products.OrderByDescending(x=>x.Id).ToList();
             return View(products);
         }
+
+        //cate
+        public IActionResult ByCategory(int categoryId)
+        {
+            var category = _context.Categories.FirstOrDefault(c => c.Id == categoryId);
+
+          
+
+            if (category == null)
+            {
+                ViewData["Message"] = "Danh mục không tồn tại.";
+                return View("NotFound");
+            }
+
+            var products = _context.Products
+                .Where(p => p.CategoryId == categoryId)
+                .OrderByDescending(p => p.Id)
+                .ToList();
+
+            ViewData["CategoryName"] = category.Name;
+            ViewData["Categories"] = _context.Categories.ToList();
+
+            return View("Index", products); // sử dụng lại view Index
+        }
+
+
 
         public IActionResult SearchProducts(string SearchText)
         {

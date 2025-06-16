@@ -25,6 +25,10 @@ public partial class Product
 
     public string? VideoUrl { get; set; }
 
+    public int? CategoryId { get; set; }
+
+    public virtual Category? Category { get; set; }
+
     public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();

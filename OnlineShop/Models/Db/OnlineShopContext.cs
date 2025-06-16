@@ -21,6 +21,8 @@ public partial class OnlineShopContext : DbContext
 
     public virtual DbSet<BestSellingTemp> BestSellingTemps { get; set; }
 
+    public virtual DbSet<Category> Categories { get; set; }
+
     public virtual DbSet<Comment> Comments { get; set; }
 
     public virtual DbSet<Coupon> Coupons { get; set; }
@@ -41,13 +43,13 @@ public partial class OnlineShopContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=LAPTOP-JOI1OHSE\\SQLEXPRESS01;Database=OnlineShop;Trusted_Connection=True;TrustServerCertificate=true");
+        => optionsBuilder.UseSqlServer("Server=LAPTOP-JOI1OHSE\\SQLEXPRESS01;Database=OnlineShopTEST1;Trusted_Connection=True;TrustServerCertificate=true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Banner>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Banner__3214EC273FE93CA7");
+            entity.HasKey(e => e.Id).HasName("PK__Banner__3214EC275F88B346");
 
             entity.ToTable("Banner");
 
@@ -85,9 +87,17 @@ public partial class OnlineShopContext : DbContext
             entity.Property(e => e.Title).HasMaxLength(200);
         });
 
+        modelBuilder.Entity<Category>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Categori__3214EC07A705A5E1");
+
+            entity.Property(e => e.Description).HasMaxLength(500);
+            entity.Property(e => e.Name).HasMaxLength(100);
+        });
+
         modelBuilder.Entity<Comment>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Comment__3214EC077E6E5D7B");
+            entity.HasKey(e => e.Id).HasName("PK__Comment__3214EC07AE9746BD");
 
             entity.ToTable("Comment");
 
@@ -99,12 +109,12 @@ public partial class OnlineShopContext : DbContext
             entity.HasOne(d => d.Product).WithMany(p => p.Comments)
                 .HasForeignKey(d => d.ProductId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Comment__Product__3B75D760");
+                .HasConstraintName("FK__Comment__Product__5070F446");
         });
 
         modelBuilder.Entity<Coupon>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Coupon__3214EC07435C317D");
+            entity.HasKey(e => e.Id).HasName("PK__Coupon__3214EC0725065D47");
 
             entity.ToTable("Coupon");
 
@@ -114,7 +124,7 @@ public partial class OnlineShopContext : DbContext
 
         modelBuilder.Entity<Menu>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Menus__3214EC276E816C31");
+            entity.HasKey(e => e.Id).HasName("PK__Menus__3214EC271EF18CA6");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.Link).HasMaxLength(300);
@@ -124,7 +134,7 @@ public partial class OnlineShopContext : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Order__3214EC07882D5BCC");
+            entity.HasKey(e => e.Id).HasName("PK__Order__3214EC07AADACA02");
 
             entity.ToTable("Order");
 
@@ -149,12 +159,12 @@ public partial class OnlineShopContext : DbContext
             entity.HasOne(d => d.User).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Order__UserId__440B1D61");
+                .HasConstraintName("FK__Order__UserId__59063A47");
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__OrderDet__3214EC077CB0DC50");
+            entity.HasKey(e => e.Id).HasName("PK__OrderDet__3214EC07054080CB");
 
             entity.Property(e => e.ProductPrice).HasColumnType("money");
             entity.Property(e => e.ProductTitle).HasMaxLength(200);
@@ -162,17 +172,17 @@ public partial class OnlineShopContext : DbContext
             entity.HasOne(d => d.Order).WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.OrderId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__OrderDeta__Order__46E78A0C");
+                .HasConstraintName("FK__OrderDeta__Order__5BE2A6F2");
 
             entity.HasOne(d => d.Product).WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.ProductId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__OrderDeta__Produ__47DBAE45");
+                .HasConstraintName("FK__OrderDeta__Produ__5CD6CB2B");
         });
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Products__3214EC073FF53A7D");
+            entity.HasKey(e => e.Id).HasName("PK__Products__3214EC07FD35843D");
 
             entity.Property(e => e.Description).HasMaxLength(500);
             entity.Property(e => e.Discount).HasColumnType("money");
@@ -182,11 +192,15 @@ public partial class OnlineShopContext : DbContext
             entity.Property(e => e.Tags).HasMaxLength(1000);
             entity.Property(e => e.Title).HasMaxLength(200);
             entity.Property(e => e.VideoUrl).HasMaxLength(300);
+
+            entity.HasOne(d => d.Category).WithMany(p => p.Products)
+                .HasForeignKey(d => d.CategoryId)
+                .HasConstraintName("FK__Products__Catego__4D94879B");
         });
 
         modelBuilder.Entity<ProductGallery>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__ProductG__3214EC07E6E3C4B6");
+            entity.HasKey(e => e.Id).HasName("PK__ProductG__3214EC073D3FB540");
 
             entity.ToTable("ProductGallery");
 
@@ -195,12 +209,12 @@ public partial class OnlineShopContext : DbContext
             entity.HasOne(d => d.Product).WithMany(p => p.ProductGalleries)
                 .HasForeignKey(d => d.ProductId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ProductGa__Produ__4AB81AF0");
+                .HasConstraintName("FK__ProductGa__Produ__5FB337D6");
         });
 
         modelBuilder.Entity<Setting>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Settings__3214EC07C99A9EA7");
+            entity.HasKey(e => e.Id).HasName("PK__Settings__3214EC07725B620F");
 
             entity.Property(e => e.Address).HasMaxLength(500);
             entity.Property(e => e.CopyRight).HasMaxLength(100);
@@ -218,7 +232,7 @@ public partial class OnlineShopContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__User__3214EC07EB2AD328");
+            entity.HasKey(e => e.Id).HasName("PK__User__3214EC0702DDCD1B");
 
             entity.ToTable("User");
 

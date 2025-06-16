@@ -85,6 +85,16 @@
                 <span asp-validation-for="VideoUrl" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class="form-control">
+                    <option value="1">Nữ</option>
+                    <option value="2">Nam</option>
+                    <option value="3">Trẻ em</option>
+                    <option value="4">Túi xách</option>
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
