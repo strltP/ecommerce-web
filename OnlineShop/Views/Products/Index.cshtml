@@ -183,7 +183,44 @@
                    
 
                 </div>
-  
+                @{
+                    int currentPage = (int)(ViewData["CurrentPage"] ?? 1);
+                    int totalPages = (int)(ViewData["TotalPages"] ?? 1);
+                    string baseUrl;
+
+                    var searchText = ViewData["SearchText"] as string;
+                    var categoryId = ViewData["CategoryId"];
+
+                    if (!string.IsNullOrEmpty(searchText))
+                    {
+                        baseUrl = $"/products/searchproducts?searchText={searchText}&page=";
+                    }
+                    else if (categoryId != null)
+                    {
+                        baseUrl = $"/products/bycategory?categoryId={categoryId}&page=";
+                    }
+                    else
+                    {
+                        baseUrl = "/products?page=";
+                    }
+                }
+
+
+                @if (totalPages > 1)
+                {
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center mt-4">
+                            @for (int i = 1; i <= totalPages; i++)
+                            {
+                                <li class="page-item @(i == currentPage ? "active" : "")">
+                                    <a class="page-link" href="@baseUrl@i">@i</a>
+                                </li>
+                            }
+                        </ul>
+                    </nav>
+                }
+
+
 
                 <!--shop toolbar end-->
                 <!--shop wrapper end-->

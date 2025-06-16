@@ -29,7 +29,7 @@ namespace OnlineShop.Controllers
                 .ToList();
             ViewData["newProducts"] = newProducts;
             //------------------best selling---------------------------
-           var bestSellingProducts = _context.BestSellingFinals
+           var bestSellingProducts = _context.BestSellingFinals.OrderByDescending(x => x.TotalSum)
                 .ToList();
             ViewData["bestSellingProducts"] = bestSellingProducts;
             //----------------------
