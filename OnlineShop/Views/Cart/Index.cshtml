@@ -13,11 +13,11 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>product </th>
-                                            <th>information</th>
-                                            <th>Price</th>
-                                            <th>Quantity</th>
-                                            <th>Total</th>
+                                            <th>hình ảnh</th>
+                                            <th>tên sản phẩm</th>
+                                            <th>giá tiền</th>
+                                            <th>số lượng</th>
+                                            <th>tổng tiền</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -41,7 +41,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="cart_product_price">
-                                                        <span>$@item.Price.GetValueOrDefault(0).ToString("F")</span>
+                                                        <span>@item.Price.GetValueOrDefault(0).ToString("F") vnd</span>
                                                     </div>
                                                 </td>
                                                 <td class="product_quantity">
@@ -52,7 +52,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="cart_product_price">
-                                                        <span>$@item.RowSumPrice.GetValueOrDefault(0).ToString("F")</span>
+                                                        <span>@item.RowSumPrice.GetValueOrDefault(0).ToString("F") vnd</span>
                                                     </div>
                                                 </td>
                                                 <td>
@@ -71,12 +71,12 @@
                             </div>
                             <div class="cart_page_button border-top d-flex justify-content-between">
                                 <div class="shopping_cart_btn">
-                                    <a href="/cart/ClearCart" class="btn btn-primary border">CLEAR SHOPPING CART</a>
-                                    <a href="/cart" class="btn btn-primary border">UPDATE YOUR CART</a>
+                                    <a href="/cart/ClearCart" class="btn btn-primary border">XÓA GIỎ HÀNG</a>
+                                    <a href="/cart" class="btn btn-primary border">CẬP NHẬT GIỎ HÀNG</a>
                                 
                                 </div>
                                 <div class="shopping_continue_btn">
-                                    <a href="/products" class="btn btn-primary">CONTINUE SHOPPING</a>
+                                    <a href="/products" class="btn btn-primary">TIẾP TỤC MUA SẮM</a>
                                     
                                 </div>
                             </div>
@@ -117,14 +117,14 @@
                                         <span>$126.00</span>
                                     </div> *@
                                     <div class="cart_grandtotal d-flex justify-content-between">
-                                        <p>Total</p>
-                                        <span>$@Model.Sum(x=>x.RowSumPrice)?.ToString("F")</span>
+                                        <p>Tổng</p>
+                                        <span>@Model.Sum(x=>x.RowSumPrice)?.ToString("F") vnd</span>
                                     </div>
                                 </div>
                                 <div class="proceed_checkout_btn">
-                                    <a class="btn btn-primary" href="/cart/CheckOut">Proceed to Checkout</a>
+                                    <a class="btn btn-primary" href="/cart/CheckOut">Thanh toán</a>
                                 </div>
-                                <a href="#">Checkout with Mutilple Adresses</a>
+                               @*  <a href="#">Checkout with Mutilple Adresses</a> *@
                             </div>
                         </div>
                     </div>
@@ -142,10 +142,10 @@ else
         <div class="container">
 
             <div class="alert alert-danger" role="alert">
-                <h4 class="alert-heading">Your cart is empty!</h4>
-                <p>It seems you haven't added any products to your cart yet. Start shopping now!</p>
+                <h4 class="alert-heading">Giỏ hàng của bạn đang trống!</h4>
+                <p>Có vẻ như bạn chưa thêm sản phẩm nào vào giỏ hàng. Hãy bắt đầu mua sắm ngay!</p>
                 <hr>
-                <p class="mb-0"><a href="/products" class="btn btn-primary">Go to Products</a></p>
+                <p class="mb-0"><a href="/products" class="btn btn-primary">Khám phá cửa hàng</a></p>
             </div>
 
         </div>

@@ -96,13 +96,13 @@
                                                     decimal? discounted_price;
                                                     discounted_price = item.Price.GetValueOrDefault(0) - item.Discount.GetValueOrDefault(0);
                                                 }
-                                                $@discounted_price.GetValueOrDefault(0).ToString("F")
+                                                @discounted_price.GetValueOrDefault(0).ToString("F") vnd
                                             </span>
-                                            <span class="old_price">$@item.Price.GetValueOrDefault(0).ToString("F")</span>
+                                            <span class="old_price">@item.Price.GetValueOrDefault(0).ToString("F") vnd</span>
                                         }
                                         else
                                         {
-                                            <span class="current_price">$@item.Price.GetValueOrDefault(0).ToString("F")</span>
+                                            <span class="current_price">@item.Price.GetValueOrDefault(0).ToString("F") vnd</span>
                                         }
 
                                     </div>
@@ -123,11 +123,11 @@
                                                 }
                                                 $@discounted_price.GetValueOrDefault(0).ToString("F")
                                             </span>
-                                            <span class="old_price">$@item.Price.GetValueOrDefault(0).ToString("F")</span>
+                                            <span class="old_price">@item.Price.GetValueOrDefault(0).ToString("F") vnd</span>
                                         }
                                         else
                                         {
-                                            <span class="current_price">$@item.Price.GetValueOrDefault(0).ToString("F")</span>
+                                            <span class="current_price">@item.Price.GetValueOrDefault(0).ToString("F") vnd</span>
                                         }
                                     </div>
                                     <div class="product_desc">

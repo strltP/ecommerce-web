@@ -42,14 +42,14 @@ namespace OnlineShop.Controllers
             Match match = regex.Match(user.Email);
             if (!match.Success)
             {
-                ModelState.AddModelError("Email", "Email is not valid");
+                ModelState.AddModelError("Email", "Email không hợp lệ");
                 return View(user);
             }
             //-----------Duplictae Email Checking-------------
             var prevUser = _context.Users.Any(x => x.Email == user.Email);
             if (prevUser)
             {
-                ModelState.AddModelError("Email", "Email is used");
+                ModelState.AddModelError("Email", "Email đã được sử dụng");
                 return View(user);
             }
             //------------------------------------------------
@@ -77,7 +77,7 @@ namespace OnlineShop.Controllers
             //-----
             if (foundUser == null)
             {
-                ModelState.AddModelError("Email", "User or password not valid");
+                ModelState.AddModelError("Email", "Tên người dùng hoặc mật khẩu không đúng");
                 return View(user);
             }
             //------------

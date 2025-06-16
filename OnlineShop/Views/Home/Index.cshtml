@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Trang chủ";
     var banners = ViewData["banners"] as List<OnlineShop.Models.Db.Banner>;
     var newProducts = ViewData["newProducts"] as List<OnlineShop.Models.Db.Product>;
     var bestSellingProducts = ViewData["bestSellingProducts"] as List<OnlineShop.Models.Db.BestSellingFinal>;
@@ -218,11 +218,11 @@
                                                     }
                                                     $@discounted_price.GetValueOrDefault(0).ToString("F")
                                                 </span>
-                                                <span class="old_price">$@item.Price.GetValueOrDefault(0).ToString("F")</span>
+                                                <span class="old_price">@item.Price.GetValueOrDefault(0).ToString("F") vnd</span>
                                             }
                                             else
                                             {
-                                                <span class="current_price">$@item.Price.GetValueOrDefault(0).ToString("F")</span>
+                                                <span class="current_price">@item.Price.GetValueOrDefault(0).ToString("F") vnd</span>
                                             }
 
                                         </div>
@@ -373,11 +373,11 @@
                                                     }
                                                     $@discounted_price.GetValueOrDefault(0).ToString("F")
                                                 </span>
-                                                <span class="old_price">$@item.Price.GetValueOrDefault(0).ToString("F")</span>
+                                                <span class="old_price">@item.Price.GetValueOrDefault(0).ToString("F") vnd</span>
                                             }
                                             else
                                             {
-                                                <span class="current_price">$@item.Price.GetValueOrDefault(0).ToString("F")</span>
+                                                <span class="current_price">@item.Price.GetValueOrDefault(0).ToString("F") vnd</span>
                                             }
 
                                         </div>

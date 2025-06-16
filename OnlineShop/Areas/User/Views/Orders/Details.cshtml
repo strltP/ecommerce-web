@@ -1,7 +1,7 @@
 ﻿@model OnlineShop.Models.Db.Order
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Chi tiết đơn hàng";
     List<OrderDetail> orderDetails = ViewData["OrderDetails"] as List<OrderDetail> ?? new List<OrderDetail>();
     // List<OrderDetail> orderDetails = ViewData["OrderDetails"] as List<OrderDetail>;  //original code
 }
@@ -125,16 +125,16 @@
         <thead>
             <tr>
                 <th>
-                    Title
+                    Tên sản phẩm
                 </th>
                 <th>
-                    Price
+                    Giá tiền
                 </th>
                 <th>
-                    Count
+                    Số lượng mua
                 </th>
                 <th>
-                    Total
+                    Tổng tiền
                 </th>
                 <th></th>
             </tr>

@@ -26,7 +26,7 @@
             <div class="col-12">
                 <div class="breadcrumb_content">
                     <ul>
-                        <li><a href="/">home</a></li>
+                        <li><a href="/">trang chủ</a></li>
                         <li><a href="/products">shop</a></li>
                         <li>@Model.Title</li>
                     </ul>
@@ -92,7 +92,7 @@
                             <div class="product_review">
                                 <ul class="d-flex">
                                     <li>@comments.Count reviews</li>
-                                    <li>Write your review</li>
+                                    <li>Viết đánh giá</li>
                                 </ul>
                             </div>
                         </div>
@@ -107,30 +107,30 @@
                                         }
                                         $@discounted_price.GetValueOrDefault(0).ToString("F")
                                     </span>
-                                    <span class="old_price">$@Model.Price.GetValueOrDefault(0).ToString("F")</span>
+                                    <span class="old_price">@Model.Price.GetValueOrDefault(0).ToString("F") vnd</span>
                                 }
                                 else
                                 {
-                                    <span class="current_price">$@Model.Price.GetValueOrDefault(0).ToString("F")</span>
+                                    <span class="current_price">@Model.Price.GetValueOrDefault(0).ToString("F") vnd</span>
                                 }
                             </span>
                         </div>
                         <div class="product_availalbe">
                             <ul class="d-flex">
-                                <li><i class="icon-layers icons"></i> Only <span>
+                                <li><i class="icon-layers icons"></i> Chỉ còn <span>
                                     @Model.Qty
-                                </span> left </li>
-                                <li>Availalbe:
+                                </span> sản phẩm </li>
+                                <li>Tình trạng:
                                     @if(@Model.Qty > 0)
                                     {
                                         <span class="stock">
-                                            In Stock
+                                            Có trong kho
                                         </span>
                                     }
                                     else
                                     {
                                         <span class="text-danger">
-                                            No
+                                            Đã hết hàng
                                         </span>
                                     }
                                     
@@ -194,7 +194,7 @@
                                     <a class="button btn btn-primary" onclick="updateCart(@Model.Id,1)">
                                         <i class="ion-android-add">
 
-                                        </i> Add To Cart
+                                        </i> Thêm vào giỏ hàng
                                     </a>
                                 }
 
@@ -251,10 +251,10 @@
                     <div class="product_info_button border-bottom">
                         <ul class="nav" role="tablist">
                             <li>
-                                <a class="active" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="false">Product Description</a>
+                                <a class="active" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="false">Mô tả sản phẩm</a>
                             </li>
                             <li>
-                                <a data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews          </a>
+                                <a data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Đánh giá          </a>
                             </li>
                             <li>
                                 <a data-toggle="tab" href="#tags" role="tab" aria-controls="tags" aria-selected="false">Tags </a>
@@ -266,7 +266,7 @@
                                 <a data-toggle="tab" href="#tabinfo" role="tab" aria-controls="tabinfo" aria-selected="false">Custom Tab Info  </a>
                             </li> *@
                             <li>
-                                <a data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Custom Tab Video </a>
+                                <a data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Video giới thiệu </a>
                             </li>
 
                         </ul>
@@ -279,7 +279,7 @@
                         </div>
                         <div class="tab-pane fade" id="reviews" role="tabpanel">
                             <div class="reviews_wrapper">
-                                <h2>@comments.Count review for @Model.Title</h2>
+                                <h2>@comments.Count đánh giá cho @Model.Title</h2>
                                 @foreach (var item in comments)
                                 {
                                     <div class="reviews_comment_box">
@@ -306,8 +306,8 @@
                                 }
                              
                                 <div class="comment_title">
-                                    <h2>Add a review </h2>
-                                    <p>Your email address will not be published.  Required fields are marked </p>
+                                    <h2>Thêm đánh giá </h2>
+                                    <p>Email của bạn sẽ không được công khai.</p>
                                 </div>
                                 @* <div class="product_ratting mb-10">
                                     <h3>Your rating</h3>
@@ -324,11 +324,11 @@
                                         <input type="hidden" name="productId" value="@Model.Id" />
                                         <div class="row">
                                             <div class="col-12">
-                                                <label for="review_comment">Your review </label>
+                                                <label for="review_comment">Đánh giá của bạn </label>
                                                 <textarea name="comment" id="review_comment"></textarea>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
-                                                <label for="author">Name</label>
+                                                <label for="author">Tên</label>
                                                 <input name="name" id="author" type="text">
 
                                             </div>
@@ -349,7 +349,7 @@
                                                                                                 @TempData["ErrorMessage"]
                                             </div>
                                         }
-                                        <button type="submit">Submit</button>
+                                        <button type="submit">Xác nhận</button>
                                     </form>
                                 </div>
                             </div>
@@ -445,7 +445,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section_title mb-50">
-                        <h2>New Products</h2>
+                        <h2>Sản phẩm mới</h2>
                     </div>
                 </div>
             </div>
@@ -524,15 +524,15 @@
                                                     }
                                                     $@discounted_price.GetValueOrDefault(0).ToString("F")
                                                 </span>
-                                                <span class="old_price">$@item.Price.GetValueOrDefault(0).ToString("F")</span>
+                                                <span class="old_price">@item.Price.GetValueOrDefault(0).ToString("F") vnd</span>
                                             }
                                             else
                                             {
-                                                <span class="current_price">$@item.Price.GetValueOrDefault(0).ToString("F")</span>
+                                                <span class="current_price">@item.Price.GetValueOrDefault(0).ToString("F") vnd</span>
                                             }
                                         </div>
                                         <div class="add_to_cart">
-                                            <a class="btn btn-primary" onclick="updateCart(@item.Id,1)" data-tippy="Add To Cart" data-tippy-inertia="true" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-placement="top">Add To Cart</a>
+                                            <a class="btn btn-primary" onclick="updateCart(@item.Id,1)" data-tippy="Thêm vào giỏ hàng" data-tippy-inertia="true" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-placement="top">Thêm vào giỏ hàng</a>
                                         </div>
                                     </figcaption>
                                 </figure>

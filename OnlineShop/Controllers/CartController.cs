@@ -52,7 +52,7 @@ namespace OnlineShop.Controllers
             }
             if (product.Qty<request.Count)
             {
-                return BadRequest("Invalid quantity");
+                return BadRequest("Số lượng không phù hợp");
             }
             // Retrieve the list of products in the cart using the dedicated function
             var cartItems = GetCartItems();
@@ -156,15 +156,34 @@ namespace OnlineShop.Controllers
         [Authorize]
         public IActionResult Checkout()
         {
+            //var order = new Models.Db.Order();
+
+            //var shipping = _context.Settings.First().Shipping;
+            //if (shipping != null)
+            //{
+            //    order.Shipping = shipping;
+            //}
+
+            //ViewData["Products"] = GetProductsinCart();
+
+            var products = GetProductsinCart();
+
+            // ✅ Nếu giỏ hàng trống → chuyển hướng về trang giỏ hàng hoặc hiển thị cảnh báo
+            if (products == null || !products.Any())
+            {
+                TempData["message"] = "Giỏ hàng của bạn đang trống.";
+                return RedirectToAction("Index", "Cart");
+            }
+
             var order = new Models.Db.Order();
 
-            var shipping = _context.Settings.First().Shipping;
+            var shipping = _context.Settings.FirstOrDefault()?.Shipping;
             if (shipping != null)
             {
                 order.Shipping = shipping;
             }
 
-            ViewData["Products"] = GetProductsinCart();
+            ViewData["Products"] = products;
             return View(order);
         }
 
@@ -184,7 +203,7 @@ namespace OnlineShop.Controllers
             else
             {
                 ViewData["Products"] = GetProductsinCart();
-                TempData["message"] = "Coupon not exitst";
+                TempData["message"] = "Mã giảm giá không tồn tại";
                 return View("Checkout", order);
             }
 
@@ -235,6 +254,8 @@ namespace OnlineShop.Controllers
             }
 
             var products = GetProductsinCart();
+            
+
 
             order.Shipping = _context.Settings.First().Shipping;
             order.CreateDate = DateTime.Now;
@@ -253,6 +274,9 @@ namespace OnlineShop.Controllers
             //-------------------------------------------------------
 
             List<OrderDetail> orderDetails = new List<OrderDetail>();
+
+
+       
 
             foreach (var item in products)
             {
