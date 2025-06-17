@@ -3456,12 +3456,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\banners\cfb1ca6c-9e79-4b87-bb64-8f859647347d.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\banners\db4b8fc2-28e6-442a-bb7d-342ad95e548a.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\banners\d0ce8521-4a48-4060-8891-10cb91b9d827.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>OnlineShop</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/OnlineShop</BasePath>
-      <RelativePath>images/banners/db4b8fc2-28e6-442a-bb7d-342ad95e548a.jpg</RelativePath>
+      <RelativePath>images/banners/d0ce8521-4a48-4060-8891-10cb91b9d827.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -3470,7 +3470,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\banners\db4b8fc2-28e6-442a-bb7d-342ad95e548a.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\banners\d0ce8521-4a48-4060-8891-10cb91b9d827.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\banners\e0dc4674-79b3-49d7-b230-3216598c200b.png))">
       <SourceType>Package</SourceType>

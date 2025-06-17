@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PVFkbQ4f1+m/NAaFEWhqNJFgL/qwfV8fD48KJqeXi20=",
+  "Hash": "odP794KB0fFNkVwC/xGqMGi3521bwrsBRGqx7pasQsk=",
   "Source": "OnlineShop",
   "BasePath": "_content/OnlineShop",
   "Mode": "Default",
@@ -4159,12 +4159,12 @@
       "OriginalItemSpec": "wwwroot\\images\\banners\\cfb1ca6c-9e79-4b87-bb64-8f859647347d.jpg"
     },
     {
-      "Identity": "D:\\OnlineShopSn\\OnlineShop\\wwwroot\\images\\banners\\db4b8fc2-28e6-442a-bb7d-342ad95e548a.jpg",
+      "Identity": "D:\\OnlineShopSn\\OnlineShop\\wwwroot\\images\\banners\\d0ce8521-4a48-4060-8891-10cb91b9d827.jpg",
       "SourceId": "OnlineShop",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\OnlineShopSn\\OnlineShop\\wwwroot\\",
       "BasePath": "_content/OnlineShop",
-      "RelativePath": "images/banners/db4b8fc2-28e6-442a-bb7d-342ad95e548a.jpg",
+      "RelativePath": "images/banners/d0ce8521-4a48-4060-8891-10cb91b9d827.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -4175,7 +4175,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\banners\\db4b8fc2-28e6-442a-bb7d-342ad95e548a.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\banners\\d0ce8521-4a48-4060-8891-10cb91b9d827.jpg"
     },
     {
       "Identity": "D:\\OnlineShopSn\\OnlineShop\\wwwroot\\images\\banners\\e0dc4674-79b3-49d7-b230-3216598c200b.png",
