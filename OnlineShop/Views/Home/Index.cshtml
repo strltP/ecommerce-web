@@ -216,7 +216,7 @@
                                                         decimal? discounted_price;
                                                         discounted_price = item.Price.GetValueOrDefault(0) - item.Discount.GetValueOrDefault(0);
                                                     }
-                                                    $@discounted_price.GetValueOrDefault(0).ToString("F")
+                                                    @discounted_price.GetValueOrDefault(0).ToString("F") vnd
                                                 </span>
                                                 <span class="old_price">@item.Price.GetValueOrDefault(0).ToString("F") vnd</span>
                                             }
@@ -371,7 +371,7 @@
                                                         decimal? discounted_price;
                                                         discounted_price = item.Price.GetValueOrDefault(0) - item.Discount.GetValueOrDefault(0);
                                                     }
-                                                    $@discounted_price.GetValueOrDefault(0).ToString("F")
+                                                    @discounted_price.GetValueOrDefault(0).ToString("F") vnd
                                                 </span>
                                                 <span class="old_price">@item.Price.GetValueOrDefault(0).ToString("F") vnd</span>
                                             }
