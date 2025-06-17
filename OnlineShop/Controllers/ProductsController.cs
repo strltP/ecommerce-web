@@ -12,7 +12,7 @@ namespace OnlineShop.Controllers
         {
             _context = context;
         }
-        public IActionResult Index(int page = 1, int pageSize = 2)
+        public IActionResult Index(int page = 1, int pageSize = 3)
         {
             ////Lấy tất cả danh mục để hiển thị trong View
             //ViewData["Categories"] = _context.Categories.OrderBy(c => c.Id).ToList();
@@ -34,17 +34,21 @@ namespace OnlineShop.Controllers
 
             var query = _context.Products.OrderByDescending(p => p.Id);
             var products = PaginationHelper.Paginate(query, page, pageSize, out int totalPages);
+            var totalProducts = query.Count();
+
 
             ViewData["Categories"] = _context.Categories.OrderBy(c => c.Id).ToList();
             ViewData["CurrentPage"] = page;
             ViewData["TotalPages"] = totalPages;
+            ViewData["TotalProducts"] = totalProducts;
+
 
             return View(products);
 
         }
 
         //cate
-        public IActionResult ByCategory(int categoryId, int page = 1, int pageSize = 2)
+        public IActionResult ByCategory(int categoryId, int page = 1, int pageSize = 3)
         {
             //var category = _context.Categories.FirstOrDefault(c => c.Id == categoryId);
 
@@ -101,12 +105,14 @@ namespace OnlineShop.Controllers
                 .OrderByDescending(p => p.Id);
 
             var products = PaginationHelper.Paginate(query, page, pageSize, out int totalPages);
+            var totalProducts = query.Count();
 
             ViewData["CategoryName"] = category.Name;
             ViewData["Categories"] = _context.Categories.ToList();
             ViewData["CurrentPage"] = page;
             ViewData["TotalPages"] = totalPages;
             ViewData["CategoryId"] = categoryId;
+            ViewData["TotalProducts"] = totalProducts;
 
             return View("Index", products);
 
@@ -115,7 +121,7 @@ namespace OnlineShop.Controllers
 
 
 
-        public IActionResult SearchProducts(string SearchText, int page = 1, int pageSize = 2)
+        public IActionResult SearchProducts(string SearchText, int page = 1, int pageSize = 3)
         {
             //var products = _context.Products
             //    .Where(x => EF.Functions.Like(x.Title, "%" + SearchText + "%") ||
@@ -148,11 +154,13 @@ namespace OnlineShop.Controllers
         .OrderBy(x => x.Title);
 
             var products = PaginationHelper.Paginate(query, page, pageSize, out int totalPages);
+            var totalProducts = query.Count();
 
             ViewData["SearchText"] = SearchText;
             ViewData["Categories"] = _context.Categories.ToList();
             ViewData["CurrentPage"] = page;
             ViewData["TotalPages"] = totalPages;
+            ViewData["TotalProducts"] = totalProducts;
 
             return View("Index", products);
 

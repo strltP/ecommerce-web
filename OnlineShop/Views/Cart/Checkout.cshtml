@@ -30,7 +30,7 @@
                         <div id="checkout_coupon2" class="collapse" data-parent="#accordion">
                             <div class="checkout_info coupon_info">
                                 <form asp-action="ApplyCouponCode">
-                                    <input placeholder="Coupon code" type="text" name="couponCode">
+                                    <input placeholder="Mã giảm giá" type="text" name="couponCode">
                                     <button class="btn btn-primary" type="submit">Áp dụng mã giảm giá</button>
                                 </form>
                                 <br />
@@ -130,7 +130,7 @@
                                             {
                                                 <tr>
                                                     <td> @item.Title  </td>
-                                                    <td class="text-right"> $@item.RowSumPrice.GetValueOrDefault().ToString("F")  </td>
+                                                    <td class="text-right"> @item.RowSumPrice.GetValueOrDefault().ToString("F") vnd  </td>
                                                 </tr>
                                             }
 
@@ -140,12 +140,12 @@
                                             <tr>
                                                 <td>Đơn hàng tạm tính  </td>
                                                 <td class="text-right">
-                                                    $ @products.Sum(x => x.RowSumPrice)?.ToString("F")
+                                                     @products.Sum(x => x.RowSumPrice)?.ToString("F") vnd
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>Phí giao hàng  </td>
-                                                <td class="text-right">$@Model.Shipping?.ToString("F")</td>
+                                                <td class="text-right">@Model.Shipping?.ToString("F") vnd</td>
                                             </tr>
                                             @if (!string.IsNullOrEmpty(Model.CouponCode))
                                             {
@@ -157,7 +157,7 @@
                                                         </a>
                                                     </td>
                                                     <td class="text-right">
-                                                        $@Model.CouponDiscount?.ToString("F")
+                                                        @Model.CouponDiscount?.ToString("F") vnd
                                                     </td>
                                                 </tr>
                                             }
@@ -172,7 +172,7 @@
                                                     }
                                                 }
                                                 <td class="text-right">
-                                                    $@ordertotal?.ToString("F")
+                                                    @ordertotal?.ToString("F") vnd
 
                                                 </td>
                                             </tr>

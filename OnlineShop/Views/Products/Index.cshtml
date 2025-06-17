@@ -58,7 +58,12 @@
                 <!--shop toolbar start-->
                 <div class="shop_toolbar_wrapper d-flex justify-content-between align-items-center">
                     <div class="page_amount">
-                        <p>Tìm thấy <span>@Model.Count</span> sản phẩm </p>
+                       @*  <p>Tìm thấy <span>@Model.Count</span> sản phẩm </p> *@
+                        @{
+                            int total = ViewData["TotalProducts"] != null ? (int)ViewData["TotalProducts"] : Model.Count;
+                        }
+                        <p>Tìm thấy <strong>@total</strong> sản phẩm</p>
+
                     </div>
  
                     <div class="toolbar_btn_wrapper d-flex align-items-center">

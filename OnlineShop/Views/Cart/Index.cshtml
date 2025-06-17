@@ -46,8 +46,11 @@
                                                 </td>
                                                 <td class="product_quantity">
                                                     <div class="cart_product_quantity">
+                                                        @* <input min="1" max="100" value="@item.Count" type="number"
+                                                           onchange="updateCart(@item.Id,$(this).val())" > *@
                                                         <input min="1" max="100" value="@item.Count" type="number"
-                                                           onchange="updateCart(@item.Id,$(this).val())" >
+                                                               onchange="validateAndUpdate(@item.Id, this)">
+
                                                     </div>
                                                 </td>
                                                 <td>

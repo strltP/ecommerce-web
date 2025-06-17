@@ -1,33 +1,45 @@
 ﻿@model OnlineShop.Models.Db.User
-
 @{
     ViewData["Title"] = "Thông tin tài khoản";
 }
 
+<section class="mt-5 pt-5" style="background-color: #fff;">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-header bg-black text-white rounded-top-4">
+                    <h5 class="mb-0"><i class="bi bi-person-circle me-2"></i>@ViewData["Title"]</h5>
+                </div>
+                <div class="card-body bg-white">
+                    <div class="mb-4 row">
+                        <label class="col-sm-4 fw-semibold text-dark">Email</label>
+                        <div class="col-sm-8 text-muted">
+                            @Model.Email
+                        </div>
+                    </div>
 
-<div class="container" style="margin-top:200px;">
+                    <div class="mb-4 row">
+                        <label class="col-sm-4 fw-semibold text-dark">Họ và tên</label>
+                        <div class="col-sm-8 text-muted">
+                            @Model.FullName
+                        </div>
+                    </div>
 
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FullName)
-        </dd>
-       
-      
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RegisterDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RegisterDate)
-        </dd>
-      
-    </dl>
-</div>
+                    <div class="mb-4 row">
+                        <label class="col-sm-4 fw-semibold text-dark">Ngày đăng ký</label>
+                        <div class="col-sm-8 text-muted">
+                            @Model.RegisterDate
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-white text-end">
+                    <a asp-area="User" asp-controller="Home" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-dark">
+                        <i class="bi bi-pencil-square"></i> Cập nhật
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

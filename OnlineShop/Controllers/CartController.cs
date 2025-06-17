@@ -50,7 +50,7 @@ namespace OnlineShop.Controllers
             {
                 return NotFound();
             }
-            if (product.Qty<request.Count)
+            if (product.Qty<request.Count || request.Count < 0)
             {
                 return BadRequest("Số lượng không phù hợp");
             }
@@ -246,7 +246,7 @@ namespace OnlineShop.Controllers
                 }
                 else
                 {
-                    TempData["message"] = "Coupon not exitst";
+                    TempData["message"] = "Mã giảm giá không tồn tại";
                     ViewData["Products"] = GetProductsinCart();
 
                     return View(order);
