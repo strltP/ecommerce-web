@@ -1,8 +1,14 @@
 ﻿@inject OnlineShop.Models.Db.OnlineShopContext _context;
 
+@using Microsoft.AspNetCore.Authorization
+@using System.Security.Claims
+
 @{
     var MySettings = _context.Settings.FirstOrDefault();
 }
+
+
+
 
 <!doctype html>
 <html class="no-js" lang="en">
@@ -114,17 +120,22 @@
                         </div>
                         <div id="menu" class="text-left ">
                             <ul class="offcanvas_main_menu">
+
+
                                 @{
-                                    var top_menus= _context.Menus.Where(row => row.Type =="Top").ToList();
+                                    var top_menus = _context.Menus.Where(row => row.Type == "Top").ToList();
                                 }
                                 @foreach (var menus_row in top_menus)
-                                {
-                                    <li>
-                                        <a href="@menus_row.Link">@menus_row.MenuTitle</a>
-                                    </li>
-                                }
- 
+                                    {
+                                        <li>
+                                            <a href="@menus_row.Link">@menus_row.MenuTitle</a>
+                                        </li>
+                                   
+                                    }
+
+                                    
                             </ul>
+
                         </div>
                     </div>
                 </div>
@@ -347,6 +358,10 @@
                         </div>
                         <div class="copyright_right">
                             <p>@MySettings.CopyRight</p>
+                            @if(User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                            {
+                                <a style="font-size:24px;color:red" href="/admin">ADMIN</a>
+                            }
                         </div>
                     </div>
                 </div>

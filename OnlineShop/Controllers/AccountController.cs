@@ -59,54 +59,88 @@ namespace OnlineShop.Controllers
             return RedirectToAction("login");
         }
 
-        public IActionResult Login()
-        {
-            return View();
-        }
+            public IActionResult Login()
+            {
+                return View();
+            }
+
 
         [HttpPost]
-        public IActionResult Login(LoginViewModel user)
+        public async Task<IActionResult> Login(LoginViewModel user)
         {
-            //------------
             if (!ModelState.IsValid)
             {
                 return View(user);
             }
-            //------------
+
             var foundUser = _context.Users.FirstOrDefault(x => x.Email == user.Email.Trim() && x.Password == user.Password.Trim());
-            //-----
+
             if (foundUser == null)
             {
                 ModelState.AddModelError("Email", "Tên người dùng hoặc mật khẩu không đúng");
                 return View(user);
             }
-            //------------
-            // Create claims for the authenticated user
-            var claims = new List<Claim>();
-            claims.Add(new Claim(ClaimTypes.NameIdentifier, foundUser.Id.ToString()));
-            claims.Add(new Claim(ClaimTypes.Name, foundUser.FullName));
-            claims.Add(new Claim(ClaimTypes.Email, foundUser.Email));
-            //------------
-            if (foundUser.IsAdmin == true)
-            {
-                claims.Add(new Claim(ClaimTypes.Role, "admin"));
-            }
-            else
-            {
-                claims.Add(new Claim(ClaimTypes.Role, "user"));
-            }
-            //------------
-            // Create an identity based on the claims
+
+            var claims = new List<Claim>
+    {
+        new Claim(ClaimTypes.NameIdentifier, foundUser.Id.ToString()),
+        new Claim(ClaimTypes.Name, foundUser.FullName),
+        new Claim(ClaimTypes.Email, foundUser.Email),
+        new Claim(ClaimTypes.Role, foundUser.IsAdmin ? "admin" : "user")
+    };
+
             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-            //------------
-            // Create a principal based on the identity
             var principal = new ClaimsPrincipal(identity);
-            //------------
-            // Sign in the user with the created principal
-            HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-            //------------
+
+            // ❗ SỬ DỤNG AWAIT Ở ĐÂY
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
             return Redirect("/");
         }
+
+
+        //public IActionResult Login(LoginViewModel user)
+        //{
+        //    //------------
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View(user);
+        //    }
+        //    //------------
+        //    var foundUser = _context.Users.FirstOrDefault(x => x.Email == user.Email.Trim() && x.Password == user.Password.Trim());
+        //    //-----
+        //    if (foundUser == null)
+        //    {
+        //        ModelState.AddModelError("Email", "Tên người dùng hoặc mật khẩu không đúng");
+        //        return View(user);
+        //    }
+        //    //------------
+        //    // Create claims for the authenticated user
+        //    var claims = new List<Claim>();
+        //    claims.Add(new Claim(ClaimTypes.NameIdentifier, foundUser.Id.ToString()));
+        //    claims.Add(new Claim(ClaimTypes.Name, foundUser.FullName));
+        //    claims.Add(new Claim(ClaimTypes.Email, foundUser.Email));
+        //    //------------
+        //    if (foundUser.IsAdmin == true)
+        //    {
+        //        claims.Add(new Claim(ClaimTypes.Role, "admin"));
+        //    }
+        //    else
+        //    {
+        //        claims.Add(new Claim(ClaimTypes.Role, "user"));
+        //    }
+        //    //------------
+        //    // Create an identity based on the claims
+        //    var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+        //    //------------
+        //    // Create a principal based on the identity
+        //    var principal = new ClaimsPrincipal(identity);
+        //    //------------
+        //    // Sign in the user with the created principal
+        //    HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+        //    //------------
+        //    return Redirect("/");
+        //}
 
         [Authorize]
         public IActionResult Logout()
