@@ -1,0 +1,44 @@
+﻿@{
+    string searchText = ViewData["SearchText"] as string;
+    var categoryId = ViewData["CategoryId"];
+    string formAction = "";
+
+    if (!string.IsNullOrEmpty(searchText))
+    {
+        formAction = Url.Action("SearchProducts", "Products", new { searchText = searchText });
+    }
+    else if (categoryId != null)
+    {
+        formAction = Url.Action("ByCategory", "Products", new { categoryId = categoryId });
+    }
+    else
+    {
+        formAction = Url.Action("Index", "Products");
+    }
+}
+
+<div class="filter__list slider_range">
+    <h3>Giá</h3>
+    <form method="get" action="@formAction">
+        <div id="slider-range" style="margin-bottom: 10px;"></div>
+
+        <input type="text" name="text" id="amount" readonly
+               class="form-control-plaintext fw-bold"
+               style="width: 100%; padding: 0; margin: 0; font-size: 14px;" />
+
+        <input type="hidden" name="minPrice" id="minPrice" value="@ViewData["MinPrice"] ?? 1000000" />
+        <input type="hidden" name="maxPrice" id="maxPrice" value="@ViewData["MaxPrice"] ?? 5000000" />
+
+        @* Giữ lại search/category nếu đang trong bối cảnh đó *@
+        @if (!string.IsNullOrEmpty(searchText))
+        {
+            <input type="hidden" name="searchText" value="@searchText" />
+        }
+        @if (categoryId != null)
+        {
+            <input type="hidden" name="categoryId" value="@categoryId" />
+        }
+
+        <button type="submit" class="btn btn-dark btn-sm mt-2">Lọc</button>
+    </form>
+</div>

@@ -20,16 +20,7 @@
                                     @foreach (var item in categories)
                                     {
                                         <li class="widget_sub_categories">
-                                            <a href="/products/category/@item.Id" data-target="#men">@item.Name</a>
-                                            @*                                     <ul class="widget_dropdown_categories collapse show" id="men">
-                                    <li><a href="#"> New products <span>104</span></a></li>
-                                    <li><a href="#">Gymwear <span>68</span></a></li>
-                                    <li><a href="#">Jakets <span>75</span></a></li>
-                                    <li><a href="#">Jeans <span>30</span></a></li>
-                                    <li><a href="#">Shirts <span>150</span></a></li>
-                                    <li><a href="#">T-Shirts <span>113</span></a></li>
-                                    <li><a href="#">Accessories <span>95</span></a></li>
-                                    </ul> *@
+                                            <a href="/products/category/@item.Id" data-target="#men">@item.Name</a>                             
                                         </li>
                                     }
                                 }
@@ -38,7 +29,75 @@
 
                             </ul>
                         </div>
+                        <div class="widget_list widget_filter">
+                            <h2>Bộ Lọc</h2>
+                            @await Html.PartialAsync("_PriceFilter")
 
+
+
+
+
+
+@* 
+                            <div class="filter__list widget_size">
+                                <h3> size</h3>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:void(0)">S </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"> M</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">L</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"> XL</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">XLL</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="filter__list widget_color">
+                                <h3>color</h3>
+                                <ul>
+                                    <li>
+                                        <input type="checkbox">
+                                        <span class="checkmark color1"></span>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox">
+                                        <span class="checkmark color2"></span>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox">
+                                        <span class="checkmark color3"></span>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox">
+                                        <span class="checkmark color4"></span>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox">
+                                        <span class="checkmark color5"></span>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox">
+                                        <span class="checkmark color6"></span>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox">
+                                        <span class="checkmark color7"></span>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox">
+                                        <span class="checkmark color8"></span>
+                                    </li>
+                                </ul>
+                            </div>
+                            *@
+                        </div>
                     </div>
                 </aside>
                 <!--sidebar widget end-->
@@ -188,7 +247,7 @@
                    
 
                 </div>
-                @{
+      @*           @{
                     int currentPage = (int)(ViewData["CurrentPage"] ?? 1);
                     int totalPages = (int)(ViewData["TotalPages"] ?? 1);
                     string baseUrl;
@@ -208,7 +267,39 @@
                     {
                         baseUrl = "/products?page=";
                     }
+                } *@
+
+                @{
+                    int currentPage = (int)(ViewData["CurrentPage"] ?? 1);
+                    int totalPages = (int)(ViewData["TotalPages"] ?? 1);
+                    string baseUrl;
+
+                    var searchText = ViewData["SearchText"] as string;
+                    var categoryId = ViewData["CategoryId"];
+                    var minPrice = ViewData["MinPrice"];
+                    var maxPrice = ViewData["MaxPrice"];
+
+                    string priceQuery = "";
+                    if (minPrice != null && maxPrice != null)
+                    {
+                        priceQuery = $"&minPrice={minPrice}&maxPrice={maxPrice}";
+                    }
+
+                    if (!string.IsNullOrEmpty(searchText))
+                    {
+                        baseUrl = $"/products/searchproducts?searchText={searchText}{priceQuery}&page=";
+                    }
+                    else if (categoryId != null)
+                    {
+                        baseUrl = $"/products/bycategory?categoryId={categoryId}{priceQuery}&page=";
+                    }
+                    else
+                    {
+                        baseUrl = $"/products/index?{priceQuery.TrimStart('&')}&page=";
+                    }
                 }
+
+
 
 
                 @if (totalPages > 1)
@@ -234,3 +325,45 @@
     </div>
 </div>
 <!--shop  area end-->
+@section Scripts {
+    <script>
+        $(function () {
+            let min = parseInt($("#minPrice").val()) || 1000000;
+            let max = parseInt($("#maxPrice").val()) || 5000000;
+            let sliderMax = @ViewData["SliderMaxPrice"] ?? 10000000;
+
+            $("#slider-range").slider({
+                range: true,
+                min: 0,
+                max: sliderMax,
+                step: 200000,
+                values: [min, max],
+                slide: function (event, ui) {
+                    // Ngăn không cho min vượt max hoặc ngược lại
+                    if (ui.values[0] >= ui.values[1]) {
+                        return false;
+                    }
+
+                    let minText = ui.values[0].toLocaleString() + " VND";
+                    let maxText = ui.values[1] === sliderMax
+                        ? "Cao nhất"
+                        : ui.values[1].toLocaleString() + " VND";
+
+                    $("#amount").val(minText + " - " + maxText);
+                    $("#minPrice").val(ui.values[0]);
+                    $("#maxPrice").val(ui.values[1]);
+                }
+            });
+
+
+            // Gán giá trị hiển thị ban đầu
+            let minText = min.toLocaleString() + " VND";
+            let maxText = max === sliderMax ? "Cao nhất" : max.toLocaleString() + " VND";
+            $("#amount").val(minText + " - " + maxText);
+        });
+    </script>
+}
+
+}
+
+

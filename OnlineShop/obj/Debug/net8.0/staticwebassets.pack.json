@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\OnlineShop.bundle.scp.css"
     },
     {
+      "Id": "D:\\OnlineShopSn\\OnlineShop\\wwwroot\\assets\\css\\admin.css",
+      "PackagePath": "staticwebassets\\assets\\css\\admin.css"
+    },
+    {
       "Id": "D:\\OnlineShopSn\\OnlineShop\\wwwroot\\assets\\css\\animate.css",
       "PackagePath": "staticwebassets\\assets\\css\\animate.css"
     },

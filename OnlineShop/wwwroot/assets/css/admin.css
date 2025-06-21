@@ -1,0 +1,9 @@
+﻿body {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.nav-link.active {
+    font-weight: bold;
+    background-color: black !important;
+    color: white !important;
+}

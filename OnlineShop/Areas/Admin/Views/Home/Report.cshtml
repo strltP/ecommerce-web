@@ -1,0 +1,132 @@
+﻿@model OnlineShop.Areas.Admin.Models.ReportViewModel
+
+@{
+    ViewData["Title"] = "Báo cáo thống kê";
+  //  Layout = "~/Views/Shared/_Layout.cshtml"; // sửa nếu bạn có layout riêng cho admin
+}
+<a href="/Admin/Home/ExportPdf" class="btn btn-danger mb-4">
+    <i class="fa fa-file-pdf"></i> Xuất PDF
+</a>
+
+<h2 class="mb-4">Thống kê theo tháng - @DateTime.Now.Year</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <canvas id="userChart"></canvas>
+    </div>
+    <div class="col-md-6">
+        <canvas id="orderChart"></canvas>
+    </div>
+</div>
+
+<h3 class="mt-5">🔝 Top 5 sản phẩm bán chạy</h3>
+
+<table class="table table-bordered table-hover mt-3">
+    <thead class="table-dark">
+        <tr>
+            <th>Ảnh</th>
+            <th>Tên sản phẩm</th>
+            <th>Số lượng bán</th>
+            <th>Giá</th>
+            <th>Giảm giá</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.TopSellingProducts)
+        {
+            <tr>
+                <td style="width: 80px;">
+                    <img src="/images/banners/@product.ImageName" alt="@product.Title" width="60" />
+                </td>
+                <td>@product.Title</td>
+                <td>@product.TotalSum</td>
+                <td>@($"{product.Price:N0} VND")</td>
+                <td>@($"{product.Discount:N0} VND")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const userChart = document.getElementById('userChart');
+        const orderChart = document.getElementById('orderChart');
+
+        const months = ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6',
+            'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'];
+
+        const userData = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(
+        Enumerable.Range(1, 12).Select(m => Model.UserStats.FirstOrDefault(x => x.Month == m)?.Count ?? 0)
+        ));
+
+        new Chart(userChart, {
+            type: 'bar',
+            data: {
+                labels: months,
+                datasets: [{
+                    label: 'Người dùng đăng ký',
+                    data: userData,
+                    backgroundColor: 'rgba(54, 162, 235, 0.7)'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+
+        const orderCountData = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(
+        Enumerable.Range(1, 12).Select(m => Model.OrderStats.FirstOrDefault(x => x.Month == m)?.OrderCount ?? 0)
+        ));
+
+        const revenueData = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(
+        Enumerable.Range(1, 12).Select(m => Model.OrderStats.FirstOrDefault(x => x.Month == m)?.TotalRevenue ?? 0)
+        ));
+
+        new Chart(orderChart, {
+            type: 'line',
+            data: {
+                labels: months,
+                datasets: [
+                    {
+                        label: 'Số đơn hàng',
+                        data: orderCountData,
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        yAxisID: 'y',
+                    },
+                    {
+                        label: 'Doanh thu (VND)',
+                        data: revenueData,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        yAxisID: 'y1',
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        position: 'left',
+                        title: { display: true, text: 'Số đơn hàng' }
+                    },
+                    y1: {
+                        beginAtZero: true,
+                        position: 'right',
+                        title: { display: true, text: 'Doanh thu (VND)' },
+                        grid: { drawOnChartArea: false }
+                    }
+                }
+            }
+        });
+    </script>
+}

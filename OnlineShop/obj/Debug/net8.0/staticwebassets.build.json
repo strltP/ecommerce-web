@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "odP794KB0fFNkVwC/xGqMGi3521bwrsBRGqx7pasQsk=",
+  "Hash": "bUj2223vlREELe2ei37hHnSqnjsAidHJQmRgjbCfPwA=",
   "Source": "OnlineShop",
   "BasePath": "_content/OnlineShop",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\OnlineShopSn\\OnlineShop\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\OnlineShop.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\OnlineShopSn\\OnlineShop\\wwwroot\\assets\\css\\admin.css",
+      "SourceId": "OnlineShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\OnlineShopSn\\OnlineShop\\wwwroot\\",
+      "BasePath": "_content/OnlineShop",
+      "RelativePath": "assets/css/admin.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\css\\admin.css"
     },
     {
       "Identity": "D:\\OnlineShopSn\\OnlineShop\\wwwroot\\assets\\css\\animate.css",
