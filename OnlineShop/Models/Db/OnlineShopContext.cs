@@ -52,8 +52,8 @@ public partial class OnlineShopContext : DbContext
         }
         else
         {
-            optionsBuilder.UseSqlServer("Server=LAPTOP-JOI1OHSE\\SQLEXPRESS01;Database=OnlineShopTEST1;" +
-            "Trusted_Connection=True;TrustServerCertificate=true");
+            //optionsBuilder.UseSqlServer("Server=LAPTOP-JOI1OHSE\\SQLEXPRESS01;Database=OnlineShopTEST1;" +
+            //"Trusted_Connection=True;TrustServerCertificate=true");
         }
     }
 
