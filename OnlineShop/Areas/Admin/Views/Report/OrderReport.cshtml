@@ -1,0 +1,200 @@
+﻿@model OnlineShop.Areas.Admin.Models.OrderReportViewModel
+
+@{
+    ViewData["Title"] = "Thống kê đơn hàng";
+}
+
+<div class="container py-4">
+    <h2 class="mb-4">📦 Thống kê đơn hàng</h2>
+
+    <!-- Tổng quan -->
+    <div class="row mb-4 text-center">
+        <div class="col-md-6">
+            <div class="card border-primary">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Tổng số đơn hàng</h5>
+                    <h3>@Model.TotalOrders</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card border-success">
+                <div class="card-body">
+                    <h5 class="card-title text-success">Tổng doanh thu</h5>
+                    <h3>@Model.TotalRevenue.ToString("N0") VND</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chọn năm -->
+    <form method="get" class="mb-4">
+        <label class="form-label fw-bold">Chọn năm:</label>
+        <select name="year" class="form-select w-auto d-inline-block" onchange="this.form.submit()">
+            @foreach (var y in Model.AvailableYears)
+            {
+                var selected = y == Model.SelectedYear ? "selected=\"selected\"" : "";
+                @:<option value="@y" @Html.Raw(selected)>@y</option>
+            }
+        </select>
+    </form>
+
+    <!-- Biểu đồ -->
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <h5 class="text-center">🧾 Số đơn hàng theo tháng</h5>
+            <canvas id="orderChart"></canvas>
+        </div>
+        <div class="col-md-6">
+            <h5 class="text-center">💰 Doanh thu theo tháng</h5>
+            <canvas id="revenueChart"></canvas>
+        </div>
+    </div>
+
+    <!-- ------------>
+    <h5 class="mt-4">📅 Đơn theo ngày (7 ngày gần nhất)</h5>
+<table class="table table-bordered w-auto">
+    <thead class="table-light">
+        <tr>
+            <th>Ngày</th>
+            <th>Số đơn</th>
+            <th>Doanh thu</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var day in Model.OrdersPerDay.Keys)
+        {
+            <tr>
+                <td>@day</td>
+                <td>@Model.OrdersPerDay[day]</td>
+                <td>@Model.RevenuePerDay[day].ToString("N0") đ</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<!---->
+
+<h5 class="mt-4">📆 Đơn theo tháng trong năm @Model.SelectedYear</h5>
+<table class="table table-bordered w-auto">
+    <thead class="table-light">
+        <tr>
+            <th>Tháng</th>
+            <th>Số đơn</th>
+            <th>Doanh thu</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var month in Model.OrdersPerMonth.Keys)
+        {
+            <tr>
+                <td>@month</td>
+                <td>@Model.OrdersPerMonth[month]</td>
+                <td>@Model.RevenuePerMonth[month].ToString("N0") đ</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!---->
+
+<h5 class="mt-4">📈 Thống kê theo năm</h5>
+<table class="table table-bordered w-auto">
+    <thead class="table-light">
+        <tr>
+            <th>Năm</th>
+            <th>Số đơn</th>
+            <th>Doanh thu</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var year in Model.OrdersPerYear.Keys.OrderByDescending(y => y))
+        {
+            <tr>
+                <td>@year</td>
+                <td>@Model.OrdersPerYear[year]</td>
+                <td>@Model.RevenuePerYear[year].ToString("N0") đ</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+   
+
+    <!-- Đơn theo trạng thái -->
+    <h5 class="mt-5">📦 Đơn hàng theo trạng thái</h5>
+    <table class="table table-bordered w-auto">
+        <thead class="table-light">
+            <tr>
+                <th>Trạng thái</th>
+                <th>Số đơn</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var status in Model.OrdersByStatus)
+            {
+                <tr>
+                    <td>@status.Key</td>
+                    <td>@status.Value</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const orderCtx = document.getElementById('orderChart');
+        new Chart(orderCtx, {
+            type: 'bar',
+            data: {
+                labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.OrdersPerMonth.Keys)),
+                datasets: [{
+                    label: 'Số đơn trong năm @Model.SelectedYear',
+                    data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.OrdersPerMonth.Values)),
+                    backgroundColor: '#4e73df'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        precision: 0
+                    }
+                }
+            }
+        });
+
+        const revenueCtx = document.getElementById('revenueChart');
+        new Chart(revenueCtx, {
+            type: 'line',
+            data: {
+                labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.RevenuePerMonth.Keys)),
+                datasets: [{
+                    label: 'Doanh thu (VND)',
+                    data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.RevenuePerMonth.Values)),
+                    borderColor: '#1cc88a',
+                    backgroundColor: 'rgba(28,200,138,0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value.toLocaleString("vi-VN") + ' đ';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+}

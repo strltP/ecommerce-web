@@ -1,54 +1,57 @@
 ﻿@model OnlineShop.Models.Db.User
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Chi tiết người dùng";
 }
 
-<h1>Details</h1>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow rounded-4">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0">
+                        <i class="fa fa-user me-2"></i>Thông tin người dùng
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">📧 Email</dt>
+                        <dd class="col-sm-8">@Model.Email</dd>
 
-<div>
-    <h4>User</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FullName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IsAdmin)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IsAdmin)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RegisterDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RegisterDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RecoveryCode)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RecoveryCode)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+                        <dt class="col-sm-4">👤 Họ tên</dt>
+                        <dd class="col-sm-8">@Model.FullName</dd>
+
+                        <dt class="col-sm-4">🔐 Mật khẩu</dt>
+                        <dd class="col-sm-8 text-muted">••••••••</dd>
+
+                        <dt class="col-sm-4">🎖️ Vai trò</dt>
+                        <dd class="col-sm-8">
+                            @if (Model.IsAdmin)
+                            {
+                                <span class="badge bg-danger"><i class="fa fa-shield-alt me-1"></i>Admin</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary"><i class="fa fa-user me-1"></i>Khách</span>
+                            }
+                        </dd>
+
+                        <dt class="col-sm-4">🕒 Ngày đăng ký</dt>
+                        <dd class="col-sm-8">@Model.RegisterDate</dd>
+
+                        <dt class="col-sm-4">🔁 Recovery Code</dt>
+                        <dd class="col-sm-8">@Model.RecoveryCode</dd>
+                    </dl>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary me-2">
+                        <i class="fa fa-edit"></i> Chỉnh sửa
+                    </a>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="fa fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

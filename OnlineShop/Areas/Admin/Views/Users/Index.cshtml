@@ -1,57 +1,52 @@
 ﻿@model IEnumerable<OnlineShop.Models.Db.User>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Danh sách người dùng";
 }
 
-<h1>Index</h1>
+<h2 class="mb-4">👤 Danh sách người dùng</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-success mb-3">
+        <i class="fa fa-plus"></i> Thêm người dùng
+    </a>
 </p>
-<table class="table">
-    <thead>
+
+<table class="table table-bordered table-hover align-middle table-striped">
+    <thead class="table-dark text-center">
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FullName)
-            </th>
-         
-            <th>
-                @Html.DisplayNameFor(model => model.IsAdmin)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RegisterDate)
-            </th>
-          
-            <th></th>
+            <th>Email</th>
+            <th>Họ tên</th>
+            <th>Vai trò</th>
+            <th>Ngày đăng ký</th>
+            <th style="width: 160px;">Hành động</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-           
-            <td>
-                @Html.DisplayFor(modelItem => item.IsAdmin)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegisterDate)
-            </td>
-            
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            var roleBadge = item.IsAdmin
+            ? "<span class='badge bg-danger'><i class='fa fa-shield-alt me-1'></i>Admin</span>"
+            : "<span class='badge bg-secondary'><i class='fa fa-user me-1'></i>Khách</span>";
+
+            <tr>
+                <td>@item.Email</td>
+                <td>@item.FullName</td>
+                <td>@Html.Raw(roleBadge)</td>
+                <td>@item.RegisterDate</td>
+                <td class="text-center">
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info me-1">
+                        <i class="fa fa-eye"></i>
+                    </a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary me-1">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger"
+                       onclick="return confirm('Bạn có chắc muốn xoá người dùng này?');">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

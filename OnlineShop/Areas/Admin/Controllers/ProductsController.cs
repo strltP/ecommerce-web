@@ -69,6 +69,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         // GET: Admin/Products/Create
         public IActionResult Create()
         {
+            ViewBag.CategoryList = new SelectList(_context.Categories.ToList(), "Id", "Name");
             return View();
         }
 
@@ -153,8 +154,10 @@ namespace OnlineShop.Areas.Admin.Controllers
             //-----------------------
             ViewData["gallery"]= _context.ProductGalleries
                 .Where(x => x.ProductId == product.Id)
-               .ToList(); 
+               .ToList();
             //-----------------------
+
+            ViewBag.CategoryList = new SelectList(_context.Categories.ToList(), "Id", "Name", product.CategoryId);
 
             return View(product);
         }

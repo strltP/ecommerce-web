@@ -1,12 +1,24 @@
 ﻿@model OnlineShop.Areas.Admin.Models.ReportViewModel
 
 @{
-    ViewData["Title"] = "Báo cáo thống kê";
+    ViewData["Title"] = "Báo cáo - thống kê tổng quan";
   //  Layout = "~/Views/Shared/_Layout.cshtml"; // sửa nếu bạn có layout riêng cho admin
 }
-<a href="/Admin/Home/ExportPdf" class="btn btn-danger mb-4">
-    <i class="fa fa-file-pdf"></i> Xuất PDF
-</a>
+
+
+<div class="d-flex gap-2 mb-4">
+    <a href="/Admin/Home/ExportPdf" class="btn btn-danger mb-4">
+        <i class="fa fa-file-pdf"></i> Xuất PDF
+    </a>
+    <a href="/Admin/Report/UserReport" class="btn btn-primary mb-4">
+        <i class="fa fa-users"></i> Thống kê người dùng
+    </a>
+    <a href="/Admin/Report/OrderReport" class="btn btn-success mb-4">
+        <i class="fa fa-shopping-cart"></i> Thống kê đơn hàng
+    </a>
+</div>
+
+
 
 <h2 class="mb-4">Thống kê theo tháng - @DateTime.Now.Year</h2>
 

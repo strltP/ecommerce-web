@@ -1,95 +1,126 @@
 ﻿@model OnlineShop.Models.Db.Setting
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Cập nhật thông tin hệ thống";
 }
 
-<h1>Edit</h1>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow rounded-4">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">
+                        <i class="fa fa-cogs me-2"></i> Cập nhật thông tin hệ thống
+                    </h4>
+                </div>
+                <div class="card-body">
+                    @if (TempData["message"] != null)
+                    {
+                        <div class="alert alert-success" role="alert">
+                            @TempData["message"]
+                        </div>
+                    }
 
-<h4>Setting</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        @if (TempData["message"]!=null)
-        {
-            <div class="alert alert-succes" role="alert">
-                @TempData["message"]
+                    <form asp-action="Edit" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" asp-for="Logo" />
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label asp-for="Shipping" class="form-label"></label>
+                                <input asp-for="Shipping" class="form-control" />
+                                <span asp-validation-for="Shipping" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="Title" class="form-label"></label>
+                                <input asp-for="Title" class="form-control" />
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="Address" class="form-label"></label>
+                                <input asp-for="Address" class="form-control" />
+                                <span asp-validation-for="Address" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="Email" class="form-label"></label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="Phone" class="form-label"></label>
+                                <input asp-for="Phone" class="form-control" />
+                                <span asp-validation-for="Phone" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="CopyRight" class="form-label"></label>
+                                <input asp-for="CopyRight" class="form-control" />
+                                <span asp-validation-for="CopyRight" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="Instagram" class="form-label"></label>
+                                <input asp-for="Instagram" class="form-control" />
+                                <span asp-validation-for="Instagram" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="FaceBook" class="form-label"></label>
+                                <input asp-for="FaceBook" class="form-control" />
+                                <span asp-validation-for="FaceBook" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="GooglePlus" class="form-label"></label>
+                                <input asp-for="GooglePlus" class="form-control" />
+                                <span asp-validation-for="GooglePlus" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="Youtube" class="form-label"></label>
+                                <input asp-for="Youtube" class="form-control" />
+                                <span asp-validation-for="Youtube" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="Twitter" class="form-label"></label>
+                                <input asp-for="Twitter" class="form-control" />
+                                <span asp-validation-for="Twitter" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="Logo" class="form-label">Logo hiện tại</label>
+                                <input class="form-control" type="file" name="newLogo" />
+                                <img src="/images/@Model.Logo" class="img-thumbnail mt-2" style="max-height: 80px;" />
+                                <span asp-validation-for="Logo" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-success">
+                                <i class="fa fa-save me-1"></i> Lưu thay đổi
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-link">
+                        <i class="fa fa-arrow-left"></i> Quay lại trang chủ
+                    </a>
+                </div>
             </div>
-        }
-        <form asp-action="Edit" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <input type="hidden" asp-for="Logo" />
-            <div class="form-group">
-                <label asp-for="Shipping" class="control-label"></label>
-                <input asp-for="Shipping" class="form-control" />
-                <span asp-validation-for="Shipping" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Phone" class="control-label"></label>
-                <input asp-for="Phone" class="form-control" />
-                <span asp-validation-for="Phone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CopyRight" class="control-label"></label>
-                <input asp-for="CopyRight" class="form-control" />
-                <span asp-validation-for="CopyRight" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Instagram" class="control-label"></label>
-                <input asp-for="Instagram" class="form-control" />
-                <span asp-validation-for="Instagram" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FaceBook" class="control-label"></label>
-                <input asp-for="FaceBook" class="form-control" />
-                <span asp-validation-for="FaceBook" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="GooglePlus" class="control-label"></label>
-                <input asp-for="GooglePlus" class="form-control" />
-                <span asp-validation-for="GooglePlus" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Youtube" class="control-label"></label>
-                <input asp-for="Youtube" class="form-control" />
-                <span asp-validation-for="Youtube" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Twitter" class="control-label"></label>
-                <input asp-for="Twitter" class="form-control" />
-                <span asp-validation-for="Twitter" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Logo" class="control-label"></label>
-                <input class="form-control" type="file" name="newLogo" />
-                <br />
-                <img src="/images/@Model.Logo" class="img-thumbnail" />
-                <span asp-validation-for="Logo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-controller="Home" asp-action="Index">Back to List</a>
-</div>
-
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

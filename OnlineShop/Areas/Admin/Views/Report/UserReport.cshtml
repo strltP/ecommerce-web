@@ -1,0 +1,106 @@
+﻿@model OnlineShop.Areas.Admin.Models.UserReportViewModel
+
+@{
+    ViewData["Title"] = "Thống kê người dùng";
+    var colors = new[] { "#4e73df", "#1cc88a", "#36b9cc", "#f6c23e", "#e74a3b", "#858796" };
+}
+
+<div class="container py-4">
+    <h2 class="mb-4">📊 Thống kê người dùng</h2>
+
+    <!-- Tổng quan -->
+    <div class="row mb-4 text-center">
+        <div class="col-md-4">
+            <div class="card border-primary">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Tổng số người dùng</h5>
+                    <h3>@Model.TotalUsers</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-success">
+                <div class="card-body">
+                    <h5 class="card-title text-success">Admin</h5>
+                    <h3>@Model.TotalAdmins</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-secondary">
+                <div class="card-body">
+                    <h5 class="card-title text-secondary">Người dùng thường</h5>
+                    <h3>@Model.TotalRegularUsers</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chọn năm -->
+    <form method="get" class="mb-4">
+        <label for="year" class="form-label fw-bold">Chọn năm:</label>
+        <select id="year" name="year" class="form-select w-auto d-inline-block" onchange="this.form.submit()">
+           @foreach (var y in Model.AvailableYears)
+           {
+                string selected = y == Model.SelectedYear ? "selected=\"selected\"" : "";
+    
+                @:<option value="@y" @Html.Raw(selected)>@y</option>
+           }
+
+
+
+        </select>
+    </form>
+
+    <!-- Biểu đồ theo tháng -->
+    <div class="mb-5">
+        <canvas id="monthlyChart" height="100"></canvas>
+    </div>
+
+    <!-- Bảng theo 7 ngày gần nhất -->
+    <h4>🗓️ Số người dùng đăng ký trong 7 ngày gần nhất</h4>
+    <table class="table table-bordered table-striped mt-3 w-auto">
+        <thead class="table-light">
+            <tr>
+                <th>Ngày</th>
+                <th>Số lượng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var entry in Model.UsersPerDay)
+            {
+                <tr>
+                    <td>@entry.Key</td>
+                    <td>@entry.Value</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('monthlyChart');
+        const monthlyChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.UsersPerMonth.Keys)),
+                datasets: [{
+                    label: 'Số user đăng ký trong @Model.SelectedYear',
+                    data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.UsersPerMonth.Values)),
+                    backgroundColor: '@colors[0]'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        precision: 0
+                    }
+                }
+            }
+        });
+    </script>
+}

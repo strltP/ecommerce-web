@@ -1,86 +1,93 @@
 ﻿@model OnlineShop.Models.Db.Product
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Thêm sản phẩm mới";
 }
 
-<h1>Create</h1>
+<h2 class="mb-4">➕ Thêm sản phẩm mới</h2>
 
-<h4>Product</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
+<form asp-action="Create" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label">Tên sản phẩm</label>
                 <input asp-for="Title" class="form-control" />
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
+
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label">Mô tả ngắn gọn</label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="FullDesc" class="control-label"></label>
-                @* <input asp-for="FullDesc" class="form-control" /> *@
-                <textarea asp-for="FullDesc" class="form-control" rows="4"></textarea>
+
+            <div class="mb-3">
+                <label asp-for="FullDesc" class="form-label"></label>
+                <textarea asp-for="FullDesc" class="form-control" rows="4">Mô tả đầy đủ</textarea>
                 <span asp-validation-for="FullDesc" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Price" class="form-label">Giá bán</label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Discount" class="form-label">Giảm giá</label>
+                    <input asp-for="Discount" class="form-control" />
+                    <span asp-validation-for="Discount" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Discount" class="control-label"></label>
-                <input asp-for="Discount" class="form-control" />
-                <span asp-validation-for="Discount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImageName" class="control-label"></label>
-                <input  type="file" name="MainImage" class="form-control" />
-                <span asp-validation-for="ImageName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImageName" class="control-label">Gallery</label>
-                <input type="file" name="GalleryImages" multiple class="form-control" />
-               
-            </div>
-            <div class="form-group">
-                <label asp-for="Qty" class="control-label"></label>
+
+            <div class="mb-3">
+                <label asp-for="Qty" class="form-label">Số lượng sản phẩm</label>
                 <input asp-for="Qty" class="form-control" />
                 <span asp-validation-for="Qty" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Tags" class="control-label"></label>
+
+            <div class="mb-3">
+                <label asp-for="Tags" class="form-label"></label>
                 <input asp-for="Tags" class="form-control" />
                 <span asp-validation-for="Tags" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="VideoUrl" class="control-label"></label>
+
+            <div class="mb-3">
+                <label asp-for="VideoUrl" class="form-label">Đường dẫn video</label>
                 <input asp-for="VideoUrl" class="form-control" />
                 <span asp-validation-for="VideoUrl" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
-                <select asp-for="CategoryId" class="form-control">
-                    <option value="1">Nữ</option>
-                    <option value="2">Nam</option>
-                    <option value="3">Trẻ em</option>
-                    <option value="4">Túi xách</option>
+
+            <div class="mb-3">
+                <label asp-for="CategoryId" class="form-label">Danh mục sản phẩm</label>
+                <select asp-for="CategoryId" asp-items="ViewBag.CategoryList" class="form-select">
+                    <option value="">-- Chọn danh mục --</option>
                 </select>
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label class="form-label">Ảnh đại diện</label>
+                <input type="file" name="MainImage" class="form-control" />
+                <div class="form-text">Chọn 1 ảnh chính</div>
             </div>
-        </form>
+
+            <div class="mb-3">
+                <label class="form-label">Ảnh gallery</label>
+                <input type="file" name="GalleryImages" multiple class="form-control" />
+                <div class="form-text">Có thể chọn nhiều ảnh</div>
+            </div>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
+    <div class="mt-4">
+        <button type="submit" class="btn btn-success">
+            <i class="fa fa-plus"></i> Thêm mới
+        </button>
+        <a asp-action="Index" class="btn btn-secondary ms-2">⬅ Quay lại</a>
+    </div>
+</form>

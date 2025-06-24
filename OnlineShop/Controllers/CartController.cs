@@ -267,7 +267,7 @@ namespace OnlineShop.Controllers
             {
                 order.Total -= order.CouponDiscount;
             }
-
+            order.Status = "pending"; // Set initial status
             _context.Orders.Add(order);
             _context.SaveChanges();
 
@@ -385,8 +385,14 @@ namespace OnlineShop.Controllers
 
                 var executedPayment = payment.Execute(apiContext, paymentExecution);
 
+               // var executedPayment = new Payment { state = "failed" }; // ép trạng thái giả
+
+
                 if (executedPayment.state.ToLower() != "approved")
                 {
+                    //..
+                    order.Status = "failed";
+                    _context.SaveChanges();
                     return View("PaymentFailed");
                 }
 
@@ -416,6 +422,8 @@ namespace OnlineShop.Controllers
             }
             catch (Exception)
             {
+                order.Status = "failed";
+                _context.SaveChanges();
                 return View("PaymentFailed");
             }
         }

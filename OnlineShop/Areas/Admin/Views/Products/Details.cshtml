@@ -1,72 +1,64 @@
 ﻿@model OnlineShop.Models.Db.Product
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Chi tiết sản phẩm";
 }
 
-<h1>Details</h1>
+<h2 class="mb-4">📄 Thông tin chi tiết</h2>
 
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FullDesc)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FullDesc)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Discount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Discount)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Qty)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Qty)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Tags)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Tags)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.VideoUrl)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VideoUrl)
-        </dd>
-    </dl>
+<div class="row">
+    <div class="col-md-4 text-center">
+        <img src="/images/banners/@Model.ImageName" class="img-thumbnail mb-3" style="max-height: 300px; object-fit: contain;" />
+
+        @if (!string.IsNullOrEmpty(Model.VideoUrl))
+        {
+            <div class="ratio ratio-16x9 mb-2">
+                <iframe src="@Model.VideoUrl" allowfullscreen></iframe>
+            </div>
+        }
+    </div>
+
+    <div class="col-md-8">
+        <dl class="row">
+            <dt class="col-sm-4">Tên sản phẩm</dt>
+            <dd class="col-sm-8">@Model.Title</dd>
+
+            <dt class="col-sm-4">Mô tả ngắn</dt>
+            <dd class="col-sm-8">@Model.Description</dd>
+
+            <dt class="col-sm-4">Mô tả đầy đủ</dt>
+            <dd class="col-sm-8">@Model.FullDesc</dd>
+
+            <dt class="col-sm-4">Giá</dt>
+            <dd class="col-sm-8">@($"{Model.Price:N0} VND")</dd>
+
+            <dt class="col-sm-4">Giảm giá</dt>
+            <dd class="col-sm-8">@($"{Model.Discount:N0} VND")</dd>
+
+            <dt class="col-sm-4">Số lượng</dt>
+            <dd class="col-sm-8">@Model.Qty</dd>
+
+            <dt class="col-sm-4">Tags</dt>
+            <dd class="col-sm-8">@Model.Tags</dd>
+
+            <dt class="col-sm-4">Video URL</dt>
+            <dd class="col-sm-8">
+                @if (!string.IsNullOrEmpty(Model.VideoUrl))
+                {
+                    <a href="@Model.VideoUrl" target="_blank">@Model.VideoUrl</a>
+                }
+                else
+                {
+                    <em>Không có</em>
+                }
+            </dd>
+        </dl>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<div class="mt-4">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+        <i class="fa fa-edit"></i> Chỉnh sửa
+    </a>
+    <a asp-action="Index" class="btn btn-secondary ms-2">⬅ Quay lại danh sách</a>
 </div>

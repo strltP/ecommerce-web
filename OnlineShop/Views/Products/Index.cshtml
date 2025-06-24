@@ -38,7 +38,7 @@
 
 
 
-@* 
+
                             <div class="filter__list widget_size">
                                 <h3> size</h3>
                                 <ul>
@@ -96,7 +96,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            *@
+                           
                         </div>
                     </div>
                 </aside>
@@ -242,33 +242,11 @@
                                 </div>
                             </div>
                         </div>
-                    }
-
-                   
-
+                    }                 
                 </div>
-      @*           @{
-                    int currentPage = (int)(ViewData["CurrentPage"] ?? 1);
-                    int totalPages = (int)(ViewData["TotalPages"] ?? 1);
-                    string baseUrl;
 
-                    var searchText = ViewData["SearchText"] as string;
-                    var categoryId = ViewData["CategoryId"];
 
-                    if (!string.IsNullOrEmpty(searchText))
-                    {
-                        baseUrl = $"/products/searchproducts?searchText={searchText}&page=";
-                    }
-                    else if (categoryId != null)
-                    {
-                        baseUrl = $"/products/bycategory?categoryId={categoryId}&page=";
-                    }
-                    else
-                    {
-                        baseUrl = "/products?page=";
-                    }
-                } *@
-
+                                            <!--Script---->
                 @{
                     int currentPage = (int)(ViewData["CurrentPage"] ?? 1);
                     int totalPages = (int)(ViewData["TotalPages"] ?? 1);
@@ -325,10 +303,12 @@
     </div>
 </div>
 <!--shop  area end-->
+
+
 @section Scripts {
     <script>
         $(function () {
-            let min = parseInt($("#minPrice").val()) || 1000000;
+            let min = parseInt($("#minPrice").val()) || 0;
             let max = parseInt($("#maxPrice").val()) || 5000000;
             let sliderMax = @ViewData["SliderMaxPrice"] ?? 10000000;
 

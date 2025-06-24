@@ -1,71 +1,51 @@
 ﻿@model IEnumerable<OnlineShop.Models.Db.Order>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Đơn hàng";
 }
 
-<h1>Index</h1>
+<h2 class="mb-4">📦 Danh sách đơn hàng</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+<table class="table table-bordered table-hover table-striped align-middle">
+    <thead class="table-dark text-center">
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
-          
-           
-           
-            <th>
-                @Html.DisplayNameFor(model => model.Total)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreateDate)
-            </th>
-          
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-@*             <th>
-                @Html.DisplayNameFor(model => model.User)
-            </th> *@
-            <th></th>
+            <th>Khách hàng</th>
+            <th>Tổng tiền</th>
+            <th>Ngày đặt</th>
+            <th>Trạng thái</th>
+            <th style="width: 160px;">Hành động</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-           
-            <td>
-                @Html.DisplayFor(modelItem => item.Total)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreateDate)
-            </td>
-          
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
- @*            <td>
-                @Html.DisplayFor(modelItem => item.User.Id)
-            </td> *@
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            var fullName = $"{item.FirstName} {item.LastName}";
+            var statusClass = item.Status?.ToLower() switch
+            {
+                "pending" => "badge bg-warning text-dark",
+                "completed" => "badge bg-success",
+                "cancelled" => "badge bg-danger",
+                _ => "badge bg-secondary"
+            };
+
+            <tr>
+                <td>@fullName</td>
+                <td>@($"{item.Total:N0} VND")</td>
+                <td>@item.CreateDate?.ToString("dd/MM/yyyy HH:mm")</td>
+                <td><span class="@statusClass">@item.Status</span></td>
+                <td class="text-center">
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info me-1">
+                        <i class="fa fa-eye"></i>
+                    </a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary me-1">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger"
+                       onclick="return confirm('Bạn có chắc muốn xoá đơn hàng này?');">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

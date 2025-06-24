@@ -1,54 +1,55 @@
 ﻿@model OnlineShop.Models.Db.Banner
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Chi tiết Banner";
 }
 
-<h1>Details</h1>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow rounded-4">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0">
+                        <i class="fa fa-info-circle me-2"></i>Chi tiết banner
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4">Tiêu đề</dt>
+                        <dd class="col-sm-8">@Model.Title</dd>
 
-<div>
-    <h4>Banner</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SubTitle)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SubTitle)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Priority)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Priority)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Link)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Link)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Position)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Position)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+                        <dt class="col-sm-4">Phụ đề</dt>
+                        <dd class="col-sm-8">@Model.SubTitle</dd>
+
+                        <dt class="col-sm-4">Hình ảnh</dt>
+                        <dd class="col-sm-8">
+                            <img src="/images/banners/@Model.ImageName" class="img-thumbnail shadow-sm" style="max-width: 200px;" alt="Banner Image" />
+                            <div class="text-muted small mt-1">@Model.ImageName</div>
+                        </dd>
+
+                        <dt class="col-sm-4">Thứ tự ưu tiên</dt>
+                        <dd class="col-sm-8">@Model.Priority</dd>
+
+                        <dt class="col-sm-4">Đường dẫn</dt>
+                        <dd class="col-sm-8">
+                            <a href="@Model.Link" target="_blank">@Model.Link</a>
+                        </dd>
+
+                        <dt class="col-sm-4">Vị trí</dt>
+                        <dd class="col-sm-8">
+                            <span class="badge bg-secondary">@Model.Position</span>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning me-2">
+                        <i class="fa fa-edit"></i> Chỉnh sửa
+                    </a>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="fa fa-arrow-left"></i> Quay lại danh sách
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
